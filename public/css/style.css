@@ -2,21 +2,27 @@ body{
     background:url();
     background-size: cover
     padding:50px;
-    background: linear-gradient(270deg, #343e3c, #1c3673);
-    background-size: 400% 400%;
     color: white;
-    -webkit-animation: AnimationName 14s ease infinite;
-    -moz-animation: AnimationName 14s ease infinite;
-    animation: AnimationName 14s ease infinite;
+    background: linear-gradient(270deg, #41534e, #2e2f2f);
+    background-size: 400% 400%;
+    -webkit-animation: AnimationName 24s ease infinite;
+    -moz-animation: AnimationName 24s ease infinite;
+    animation: AnimationName 24s ease infinite;
 }
 .modal-content{
-  background: linear-gradient(270deg, #262446, #20325c);
+  background: linear-gradient(270deg, #1c4798, #34599e);
   background-size: 400% 400%;
   -webkit-animation: AnimationName 14s ease infinite;
   -moz-animation: AnimationName 14s ease infinite;
   animation: AnimationName 14s ease infinite;
 }
-
+.well.well-small.clearfix {
+  background: linear-gradient(270deg, #5e7872, #616967);
+  background-size: 400% 400%;
+  -webkit-animation: AnimationName 9s ease infinite;
+  -moz-animation: AnimationName 9s ease infinite;
+  animation: AnimationName 9s ease infinite;
+}
 .blackFont {
   color: black;
 }
@@ -341,7 +347,9 @@ body{
 .table-responsive {
   height: 180px;
 }
-
+.table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
+  background-color: #5e7872;
+}
 
 @-webkit-keyframes AnimationName {
     0%{background-position:0% 50%}
