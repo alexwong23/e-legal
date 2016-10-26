@@ -109,7 +109,7 @@ $(document).ready(function () {
 
   var $voteData = {
     matchInfo: this.matchInfo,
-    prediction: this.prediction,
+    vote: this.vote,
     token: this.token
   }
   var $dbData
@@ -119,15 +119,15 @@ $(document).ready(function () {
     $('#homeLogo').attr('src', $dbData.homeTeam)
     $('#awayLogo').attr('src', $dbData.awayTeam)
   })
-  $('#newPrediction').on('click', function () {
+  $('#newVote').on('click', function () {
     $voteData.token = $('#token').val()
-    $voteData.prediction = $('input[name=\"team-name"]:checked').val()
+    $voteData.vote = $('input[name=\"team-name"]:checked').val()
     if (!$dbData.user) {
       $('.modalAlert').removeClass('hide')
       $('.modalAlert').text('You need an account to vote!')
-    } else if (!$voteData.prediction) {
+    } else if (!$voteData.vote) {
       $('.modalAlert').removeClass('hide')
-      $('.modalAlert').text('Please input a prediction.')
+      $('.modalAlert').text('Please choose a team.')
     } else if ($dbData.user.local.tokens < $voteData.token) {
       $('.modalAlert').removeClass('hide')
       $('.modalAlert').text('Not enough tokens.')
@@ -135,7 +135,7 @@ $(document).ready(function () {
       $('#myModal').modal('hide')
       $.post({
         type: 'POST',
-        url: '/matches/newPrediction',
+        url: '/matches/newVote',
         data: $voteData
       }).done(function (success) {
         // req flash success in match home page

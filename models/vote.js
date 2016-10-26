@@ -1,17 +1,17 @@
 var mongoose = require('mongoose')
 
-var predictionSchema = new mongoose.Schema({
+var voteSchema = new mongoose.Schema({
   userid: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User'
   },
   matchNo: String,
-  prediction: String,
+  vote: String,
   amount: Number,
   // win loss draw
   result: String
 })
 
-var Prediction = mongoose.model('Prediction', predictionSchema)
+var Vote = mongoose.model('Vote', voteSchema)
 
-module.exports = Prediction
+module.exports = Vote

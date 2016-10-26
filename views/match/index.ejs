@@ -43,7 +43,7 @@
         <% var jsonDetails = JSON.stringify(concatjson).replace(/\s/g, "") %>
         <% var disabled %>
         <% var modalBtnText = "Vote" %>
-        <% if (userPredictionsArr.indexOf(match.matchNo) > -1) { %>
+        <% if (userVotesArr.indexOf(match.matchNo) > -1) { %>
           <% disabled = "disabled" %>
           <% modalBtnText = "Voted" %>
         <% } %>
@@ -104,7 +104,7 @@
         <div class="modal-footer">
           <div class="col-sm-6 alert alert-danger modalAlert hide"></div>
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" id="newPrediction" class="btn btn-primary">Vote</button>
+          <button type="button" id="newVote" class="btn btn-primary">Vote</button>
         </div>
       </div>
     </div>

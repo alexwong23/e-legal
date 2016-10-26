@@ -2,17 +2,17 @@ var express = require('express')
 var router = express.Router()
 var User = require('../models/user')
 var Match = require('../models/match')
-var Prediction = require('../models/prediction')
+var Vote = require('../models/vote')
 var Team = require('../models/team')
 
 router.get('/', function (req, res) {
   Match.find({'status': 'TIMED', 'date': {$gt: new Date(new Date().setHours(new Date().getHours() + 3))}}, function (err, timedArr) {
     if (err) throw new Error(err)
-    Prediction.find({'userid': req.user}, function (err, predictions) {
+    Vote.find({'userid': req.user}, function (err, votes) {
       if (err) throw new Error(err)
-      var userPredictionsArr = []
-      for (var i = 0; i < predictions.length; i++) {
-        userPredictionsArr.push(predictions[i].matchNo)
+      var userVotesArr = []
+      for (var i = 0; i < votes.length; i++) {
+        userVotesArr.push(votes[i].matchNo)
       }
       Team.find({}, function (err, teamDetails) {
         if (err) throw new Error(err)
@@ -27,7 +27,7 @@ router.get('/', function (req, res) {
         res.render('match/index', {
           message: req.flash('matchMessage'),
           timedArr: timedArr,
-          userPredictionsArr: userPredictionsArr,
+          userVotesArr: userVotesArr,
           teamObj: teamObj,
           user_id: req.user
         })
@@ -36,15 +36,15 @@ router.get('/', function (req, res) {
   })
 })
 
-router.post('/newPrediction', function (req, res) {
-  var newPrediction = new Prediction({
+router.post('/newVote', function (req, res) {
+  var newVote = new Vote({
     userid: req.user.id,
     matchNo: req.body.matchInfo.matchNo,
-    prediction: req.body.prediction,
+    vote: req.body.vote,
     amount: req.body.token,
     result: null
   })
-  newPrediction.save(function (err) {
+  newVote.save(function (err) {
     if (err) res.json({status: 'fail'})
     var tokensLeft = req.user.local.tokens - req.body.token
     User.findOneAndUpdate({'_id': req.user.id}, {'local.tokens': tokensLeft}, function (err) {
@@ -84,21 +84,21 @@ router.post('/timed', function (req, res) {
               } else if (data.result.goalsHomeTeam < data.result.goalsAwayTeam) {
                 matchResult = 'awayTeam'
               }
-              Prediction.find({'matchNo': data.matchNo, 'result': null}, function (err, userPredictions) {
+              Vote.find({'matchNo': data.matchNo, 'result': null}, function (err, userVotes) {
                 if (err) throw new Error(err)
-                for (var i = 0; i < userPredictions.length; i++) {
+                for (var i = 0; i < userVotes.length; i++) {
                   closuresNo2()
                 }
                 function closuresNo2 () {
-                  var userId = userPredictions[i].userid
-                  var userPredict = userPredictions[i].prediction
+                  var userId = userVotes[i].userid
+                  var userPredict = userVotes[i].vote
                   var userToken = 0
                   var userScore = 0
                   if (userPredict === matchResult) {
-                    userToken += (userPredictions[i].amount * 2)
+                    userToken += (userVotes[i].amount * 2)
                     userScore = 1
                   } else if (matchResult === 'draw') {
-                    userToken += (userPredictions[i].amount)
+                    userToken += (userVotes[i].amount)
                   }
                   if (matchResult !== null) {
                     User.findOneAndUpdate({'_id': userId}, {
@@ -108,7 +108,7 @@ router.post('/timed', function (req, res) {
                       }
                     }, function (err) {
                       if (err) throw new Error(err)
-                      Prediction.findOneAndUpdate({'userid': userId, 'matchNo': data.matchNo}, {
+                      Vote.findOneAndUpdate({'userid': userId, 'matchNo': data.matchNo}, {
                         'result': matchResult
                       }, function (err, answer) {
                         if (err) throw new Error(err)
@@ -179,21 +179,21 @@ router.post('/finished', function (req, res) {
               } else if (data.result.goalsHomeTeam < data.result.goalsAwayTeam) {
                 matchResult = 'awayTeam'
               }
-              Prediction.find({'matchNo': data.matchNo, 'result': null}, function (err, userPredictions) {
+              Vote.find({'matchNo': data.matchNo, 'result': null}, function (err, userVotes) {
                 if (err) throw new Error(err)
-                for (var i = 0; i < userPredictions.length; i++) {
+                for (var i = 0; i < userVotes.length; i++) {
                   closuresNo2()
                 }
                 function closuresNo2 () {
-                  var userId = userPredictions[i].userid
-                  var userPredict = userPredictions[i].prediction
+                  var userId = userVotes[i].userid
+                  var userPredict = userVotes[i].vote
                   var userToken = 0
                   var userScore = 0
                   if (userPredict === matchResult) {
-                    userToken += (userPredictions[i].amount * 2)
+                    userToken += (userVotes[i].amount * 2)
                     userScore = 1
                   } else if (matchResult === 'draw') {
-                    userToken += (userPredictions[i].amount)
+                    userToken += (userVotes[i].amount)
                   }
                   if (matchResult !== null) {
                     User.findOneAndUpdate({'_id': userId}, {
@@ -203,7 +203,7 @@ router.post('/finished', function (req, res) {
                       }
                     }, function (err) {
                       if (err) throw new Error(err)
-                      Prediction.findOneAndUpdate({'userid': userId, 'matchNo': data.matchNo}, {
+                      Vote.findOneAndUpdate({'userid': userId, 'matchNo': data.matchNo}, {
                         'result': matchResult
                       }, function (err, answer) {
                         if (err) throw new Error(err)

@@ -2,7 +2,7 @@ var express = require('express')
 var router = express.Router()
 var MatchApi = require('../models/matchapi')
 var Match = require('../models/match')
-var Prediction = require('../models/prediction')
+var Vote = require('../models/vote')
 
 // initial
 // assume 28 oct 1659, first game stop predict, show countdown
@@ -1444,7 +1444,7 @@ router.delete('/remove', function (req, res) {
   Match.remove({}, function (err) {
     if (err) throw new Error(err)
   })
-  Prediction.remove({}, function (err) {
+  Vote.remove({}, function (err) {
     if (err) throw new Error(err)
   })
   res.json({'status': 'ok'})
