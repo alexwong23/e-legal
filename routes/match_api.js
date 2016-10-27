@@ -6,8 +6,8 @@ var Match = require('../models/match')
 var Vote = require('../models/vote')
 
 // time now is 27 oct 12 00 12
-var matchDate = '2016-10-27 15:12:30' // simulate cancel vote 3 hr b4
-var matchDate2 = '2016-10-27 12:11:45' // simulate game starting
+var matchDate = '2016-10-27 15:14:30' // simulate cancel vote 3 hr b4
+var matchDate2 = '2016-10-27 12:13:45' // simulate game starting
 
 // initial
 // assume 28 oct 1659, first game stop predict, show countdown
@@ -241,7 +241,7 @@ router.get('/3', function (req, res) {
           href: 'https://api.football-data.org/v1/fixtures/111'
         }
       },
-      date: new Date('2016-10-28 20:00:00'),
+      date: new Date(matchDate2),
       status: 'IN-PLAY',
       matchday: 10,
       homeTeamName: 'Manchester City FC',
@@ -351,7 +351,7 @@ router.get('/4', function (req, res) {
           href: 'https://api.football-data.org/v1/fixtures/111'
         }
       },
-      date: new Date('2016-10-28 20:00:00'),
+      date: new Date(matchDate2),
       status: 'IN-PLAY',
       matchday: 10,
       homeTeamName: 'Manchester City FC',
@@ -461,7 +461,7 @@ router.get('/5', function (req, res) {
           href: 'https://api.football-data.org/v1/fixtures/111'
         }
       },
-      date: new Date('2016-10-28 20:00:00'),
+      date: new Date(matchDate2),
       status: 'FINISHED',
       matchday: 10,
       homeTeamName: 'Manchester City FC',
@@ -571,7 +571,7 @@ router.get('/6', function (req, res) {
           href: 'https://api.football-data.org/v1/fixtures/111'
         }
       },
-      date: new Date('2016-10-28 20:00:00'),
+      date: new Date(matchDate2),
       status: 'FINISHED',
       matchday: 10,
       homeTeamName: 'Manchester City FC',
@@ -681,7 +681,7 @@ router.get('/7', function (req, res) {
           href: 'https://api.football-data.org/v1/fixtures/111'
         }
       },
-      date: new Date('2016-10-28 20:00:00'),
+      date: new Date(matchDate2),
       status: 'FINISHED',
       matchday: 10,
       homeTeamName: 'Manchester City FC',
@@ -791,7 +791,7 @@ router.get('/8', function (req, res) {
           href: 'https://api.football-data.org/v1/fixtures/111'
         }
       },
-      date: new Date('2016-10-28 20:00:00'),
+      date: new Date(matchDate2),
       status: 'FINISHED',
       matchday: 10,
       homeTeamName: 'Manchester City FC',
@@ -902,7 +902,7 @@ router.get('/9', function (req, res) {
           href: 'https://api.football-data.org/v1/fixtures/111'
         }
       },
-      date: new Date('2016-10-28 20:00:00'),
+      date: new Date(matchDate2),
       status: 'FINISHED',
       matchday: 10,
       homeTeamName: 'Manchester City FC',
@@ -1014,7 +1014,7 @@ router.get('/10', function (req, res) {
           href: 'https://api.football-data.org/v1/fixtures/111'
         }
       },
-      date: new Date('2016-10-28 20:00:00'),
+      date: new Date(matchDate2),
       status: 'FINISHED',
       matchday: 10,
       homeTeamName: 'Manchester City FC',
@@ -1124,7 +1124,7 @@ router.get('/11', function (req, res) {
           href: 'https://api.football-data.org/v1/fixtures/111'
         }
       },
-      date: new Date('2016-10-28 20:00:00'),
+      date: new Date(matchDate2),
       status: 'FINISHED',
       matchday: 10,
       homeTeamName: 'Manchester City FC',
@@ -1235,7 +1235,7 @@ router.get('/12', function (req, res) {
           href: 'https://api.football-data.org/v1/fixtures/111'
         }
       },
-      date: new Date('2016-10-28 20:00:00'),
+      date: new Date(matchDate2),
       status: 'FINISHED',
       matchday: 10,
       homeTeamName: 'Manchester City FC',
