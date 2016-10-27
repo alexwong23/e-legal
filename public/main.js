@@ -83,7 +83,7 @@ $(document).ready(function () {
         var countDown
         function diffDate (date) {
           var subtract = Math.abs(new Date(date).getTime() - new Date().getTime())
-          if (new Date(date).getTime() < new Date().getTime()) {
+          if (new Date(date).getTime() < new Date().getTime() || match.status === 'IN-PLAY') {
             countDown = 'live'
             return countDown
           }

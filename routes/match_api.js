@@ -6,8 +6,8 @@ var Match = require('../models/match')
 var Vote = require('../models/vote')
 
 // time now is 27 oct 13 30 00
-var matchDate = '2016-10-27 15:33:00' // simulate cancel vote 3 hr b4
-var matchDate2 = '2016-10-27 13:33:45' // simulate game starting
+var matchDate = '2016-10-27 16:36:00' // simulate cancel vote 3 hr b4
+var matchDate2 = '2016-10-27 13:36:45' // simulate game starting
 
 // initial
 // assume 28 oct 1659, first game stop predict, show countdown
