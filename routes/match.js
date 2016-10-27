@@ -37,20 +37,24 @@ router.get('/', function (req, res) {
 })
 
 router.post('/newVote', function (req, res) {
-  var newVote = new Vote({
-    userid: req.user.id,
-    matchNo: req.body.matchInfo.matchNo,
-    vote: req.body.vote,
-    amount: req.body.token,
-    result: null
-  })
-  newVote.save(function (err) {
-    if (err) res.json({status: 'fail'})
-    var tokensLeft = req.user.local.tokens - req.body.token
-    User.findOneAndUpdate({'_id': req.user.id}, {'local.tokens': tokensLeft}, function (err) {
-      if (err) res.json({status: 'fail'})
+  Match.findOne({'matchNo': req.body.matchInfo.matchNo}, function (err, matchInfo) {
+    if (err) throw new Error(err)
+    var newVote = new Vote({
+      userid: req.user.id,
+      matchid: matchInfo._id,
+      matchNo: req.body.matchInfo.matchNo,
+      vote: req.body.vote,
+      amount: req.body.token,
+      result: null
     })
-    res.json({status: 'ok'})
+    newVote.save(function (err) {
+      if (err) res.json({status: 'fail'})
+      var tokensLeft = req.user.local.tokens - req.body.token
+      User.findOneAndUpdate({'_id': req.user.id}, {'local.tokens': tokensLeft}, function (err) {
+        if (err) res.json({status: 'fail'})
+      })
+      res.json({status: 'ok'})
+    })
   })
 })
 

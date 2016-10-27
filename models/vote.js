@@ -5,6 +5,10 @@ var voteSchema = new mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User'
   },
+  matchid: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Match'
+  },
   matchNo: String,
   vote: String,
   amount: Number,

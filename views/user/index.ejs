@@ -1,4 +1,5 @@
-<h1>User Homepage</h1>
+<h1>Profile</h1>
+<a href="/logout">Logout</a>
 
 <% if(message.length > 0) { %>
   <div class="alert alert-danger">
@@ -6,4 +7,49 @@
   </div>
 <% } %>
 
-<a href="/logout">Logout</a>
+<div class="container-fluid userContainer">
+  <h4>Vote History</h4>
+  <div class="row">
+    <div class="col-sm-2">
+      <h6 class="text-xs-left">Date</h6>
+    </div>
+    <div class="col-sm-2">
+      <h6>Home</h6>
+    </div>
+    <div class="col-sm-1">
+      <h6>Score</h6>
+    </div>
+    <div class="col-sm-2">
+      <h6>Away</h6>
+    </div>
+    <div class="col-sm-2">
+      <h6>Result</h6>
+    </div>
+    <div class="col-sm-2">
+      <h6>Tokens Placed</h6>
+    </div>
+  </div>
+
+  <% voteArr.forEach(function(vote) { %>
+    <div class="row">
+      <div class="col-sm-2 voteHist">
+        <h6><%= vote.matchid.date %></h6>
+      </div>
+      <div class="col-sm-2 voteHist">
+        <h6><%= vote.matchid.homeTeam %></h6>
+      </div>
+      <div class="col-sm-1 voteHist">
+        <h6><%= vote.matchid.result.goalsHomeTeam %> : <%= vote.matchid.result.goalsAwayTeam %></h6>
+      </div>
+      <div class="col-sm-2 voteHist">
+        <h6><%= vote.matchid.awayTeam %></h6>
+      </div>
+      <div class="col-sm-2 voteHist">
+        <h6><%= vote.result %></h6>
+      </div>
+      <div class="col-sm-2 voteHist">
+        <h6><%= vote.amount %></h6>
+      </div>
+    </div>
+  <% }) %>
+</div>

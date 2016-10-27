@@ -22,7 +22,7 @@ console.log('the environment is on ' + process.env.NODE_ENV)
 dotenv.load({path: '.env.' + process.env.NODE_ENV})
 mongoose.connect(process.env.MONGO_URI)
 
-app.use(morgan('dev'))
+// app.use(morgan('dev'))
 app.set('view engine', 'ejs')
 app.use(layout)
 app.use(session({

@@ -1,5 +1,8 @@
 var express = require('express')
 var router = express.Router()
+var User = require('../models/user')
+var Match = require('../models/match')
+var Vote = require('../models/vote')
 
 function userCheck (req, res, next) {
   if (req.isAuthenticated(req, res, next)) {
@@ -11,7 +14,17 @@ function userCheck (req, res, next) {
 }
 
 router.get('/', userCheck, function (req, res) {
-  res.render('user/index', { message: req.flash('userMessage') })
+  Vote.find({'userid': req.user.id})
+  .populate('userid')
+  .populate('matchid')
+  .exec(function (err, voteArr) {
+    if (err) throw new Error(err)
+    console.log(voteArr)
+    res.render('user/index', {
+      message: req.flash('userMessage'),
+      voteArr: voteArr
+    })
+  })
 })
 
 module.exports = router
