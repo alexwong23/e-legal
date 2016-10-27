@@ -5,9 +5,9 @@ var MatchApi = require('../models/matchapi')
 var Match = require('../models/match')
 var Vote = require('../models/vote')
 
-// time now is 27 oct 12 00 00
-var g1Date = '2016-10-27 15:00:10' // simulate cancel vote 3 hr b4
-var g1Date2 = '2016-10-27 11:59:45' // simulate game starting
+// time now is 27 oct 12 00 12
+var matchDate = '2016-10-27 15:12:30' // simulate cancel vote 3 hr b4
+var matchDate2 = '2016-10-27 12:11:45' // simulate game starting
 
 // initial
 // assume 28 oct 1659, first game stop predict, show countdown
@@ -21,7 +21,7 @@ router.get('/1', function (req, res) {
           href: 'https://api.football-data.org/v1/fixtures/111'
         }
       },
-      date: new Date(g1Date),
+      date: new Date(matchDate),
       status: 'TIMED',
       matchday: 10,
       homeTeamName: 'Manchester City FC',
@@ -41,7 +41,7 @@ router.get('/1', function (req, res) {
           href: 'https://api.football-data.org/v1/fixtures/222'
         }
       },
-      date: new Date('2016-10-28 22:00:00'),
+      date: new Date(matchDate),
       status: 'TIMED',
       matchday: 10,
       homeTeamName: 'Arsenal FC',
@@ -61,7 +61,7 @@ router.get('/1', function (req, res) {
           href: 'https://api.football-data.org/v1/fixtures/333'
         }
       },
-      date: new Date('2016-10-28 22:00:00'),
+      date: new Date(matchDate),
       status: 'TIMED',
       matchday: 10,
       homeTeamName: 'Leicester City FC',
@@ -131,7 +131,7 @@ router.get('/2', function (req, res) {
           href: 'https://api.football-data.org/v1/fixtures/111'
         }
       },
-      date: new Date(g1Date2),
+      date: new Date(matchDate2),
       status: 'IN-PLAY',
       matchday: 10,
       homeTeamName: 'Manchester City FC',
@@ -151,7 +151,7 @@ router.get('/2', function (req, res) {
           href: 'https://api.football-data.org/v1/fixtures/222'
         }
       },
-      date: new Date('2016-10-28 22:00:00'),
+      date: new Date(matchDate2),
       status: 'TIMED',
       matchday: 10,
       homeTeamName: 'Arsenal FC',
@@ -171,7 +171,7 @@ router.get('/2', function (req, res) {
           href: 'https://api.football-data.org/v1/fixtures/333'
         }
       },
-      date: new Date('2016-10-28 22:00:00'),
+      date: new Date(matchDate2),
       status: 'TIMED',
       matchday: 10,
       homeTeamName: 'Leicester City FC',
@@ -261,7 +261,7 @@ router.get('/3', function (req, res) {
           href: 'https://api.football-data.org/v1/fixtures/222'
         }
       },
-      date: new Date('2016-10-28 22:00:00'),
+      date: new Date(matchDate2),
       status: 'TIMED',
       matchday: 10,
       homeTeamName: 'Arsenal FC',
@@ -281,7 +281,7 @@ router.get('/3', function (req, res) {
           href: 'https://api.football-data.org/v1/fixtures/333'
         }
       },
-      date: new Date('2016-10-28 22:00:00'),
+      date: new Date(matchDate2),
       status: 'TIMED',
       matchday: 10,
       homeTeamName: 'Leicester City FC',
@@ -371,7 +371,7 @@ router.get('/4', function (req, res) {
           href: 'https://api.football-data.org/v1/fixtures/222'
         }
       },
-      date: new Date('2016-10-28 22:00:00'),
+      date: new Date(matchDate2),
       status: 'TIMED',
       matchday: 10,
       homeTeamName: 'Arsenal FC',
@@ -391,7 +391,7 @@ router.get('/4', function (req, res) {
           href: 'https://api.football-data.org/v1/fixtures/333'
         }
       },
-      date: new Date('2016-10-28 22:00:00'),
+      date: new Date(matchDate2),
       status: 'TIMED',
       matchday: 10,
       homeTeamName: 'Leicester City FC',
@@ -481,7 +481,7 @@ router.get('/5', function (req, res) {
           href: 'https://api.football-data.org/v1/fixtures/222'
         }
       },
-      date: new Date('2016-10-28 22:00:00'),
+      date: new Date(matchDate2),
       status: 'TIMED',
       matchday: 10,
       homeTeamName: 'Arsenal FC',
@@ -501,7 +501,7 @@ router.get('/5', function (req, res) {
           href: 'https://api.football-data.org/v1/fixtures/333'
         }
       },
-      date: new Date('2016-10-28 22:00:00'),
+      date: new Date(matchDate2),
       status: 'TIMED',
       matchday: 10,
       homeTeamName: 'Leicester City FC',
@@ -591,7 +591,7 @@ router.get('/6', function (req, res) {
           href: 'https://api.football-data.org/v1/fixtures/222'
         }
       },
-      date: new Date('2016-10-28 22:00:00'),
+      date: new Date(matchDate2),
       status: 'IN-PLAY',
       matchday: 10,
       homeTeamName: 'Arsenal FC',
@@ -611,7 +611,7 @@ router.get('/6', function (req, res) {
           href: 'https://api.football-data.org/v1/fixtures/333'
         }
       },
-      date: new Date('2016-10-28 22:00:00'),
+      date: new Date(matchDate2),
       status: 'IN-PLAY',
       matchday: 10,
       homeTeamName: 'Leicester City FC',
@@ -701,7 +701,7 @@ router.get('/7', function (req, res) {
           href: 'https://api.football-data.org/v1/fixtures/222'
         }
       },
-      date: new Date('2016-10-28 22:00:00'),
+      date: new Date(matchDate2),
       status: 'IN-PLAY',
       matchday: 10,
       homeTeamName: 'Arsenal FC',
@@ -721,7 +721,7 @@ router.get('/7', function (req, res) {
           href: 'https://api.football-data.org/v1/fixtures/333'
         }
       },
-      date: new Date('2016-10-28 22:00:00'),
+      date: new Date(matchDate2),
       status: 'IN-PLAY',
       matchday: 10,
       homeTeamName: 'Leicester City FC',
@@ -811,7 +811,7 @@ router.get('/8', function (req, res) {
           href: 'https://api.football-data.org/v1/fixtures/222'
         }
       },
-      date: new Date('2016-10-28 22:00:00'),
+      date: new Date(matchDate2),
       status: 'IN-PLAY',
       matchday: 10,
       homeTeamName: 'Arsenal FC',
@@ -831,7 +831,7 @@ router.get('/8', function (req, res) {
           href: 'https://api.football-data.org/v1/fixtures/333'
         }
       },
-      date: new Date('2016-10-28 22:00:00'),
+      date: new Date(matchDate2),
       status: 'IN-PLAY',
       matchday: 10,
       homeTeamName: 'Leicester City FC',
@@ -922,7 +922,7 @@ router.get('/9', function (req, res) {
           href: 'https://api.football-data.org/v1/fixtures/222'
         }
       },
-      date: new Date('2016-10-28 22:00:00'),
+      date: new Date(matchDate2),
       status: 'FINISHED',
       matchday: 10,
       homeTeamName: 'Arsenal FC',
@@ -942,7 +942,7 @@ router.get('/9', function (req, res) {
           href: 'https://api.football-data.org/v1/fixtures/333'
         }
       },
-      date: new Date('2016-10-28 22:00:00'),
+      date: new Date(matchDate2),
       status: 'FINISHED',
       matchday: 10,
       homeTeamName: 'Leicester City FC',
@@ -1034,7 +1034,7 @@ router.get('/10', function (req, res) {
           href: 'https://api.football-data.org/v1/fixtures/222'
         }
       },
-      date: new Date('2016-10-28 22:00:00'),
+      date: new Date(matchDate2),
       status: 'FINISHED',
       matchday: 10,
       homeTeamName: 'Arsenal FC',
@@ -1054,7 +1054,7 @@ router.get('/10', function (req, res) {
           href: 'https://api.football-data.org/v1/fixtures/333'
         }
       },
-      date: new Date('2016-10-28 22:00:00'),
+      date: new Date(matchDate2),
       status: 'FINISHED',
       matchday: 10,
       homeTeamName: 'Leicester City FC',
@@ -1144,7 +1144,7 @@ router.get('/11', function (req, res) {
           href: 'https://api.football-data.org/v1/fixtures/222'
         }
       },
-      date: new Date('2016-10-28 22:00:00'),
+      date: new Date(matchDate2),
       status: 'FINISHED',
       matchday: 10,
       homeTeamName: 'Arsenal FC',
@@ -1164,7 +1164,7 @@ router.get('/11', function (req, res) {
           href: 'https://api.football-data.org/v1/fixtures/333'
         }
       },
-      date: new Date('2016-10-28 22:00:00'),
+      date: new Date(matchDate2),
       status: 'FINISHED',
       matchday: 10,
       homeTeamName: 'Leicester City FC',
@@ -1255,7 +1255,7 @@ router.get('/12', function (req, res) {
           href: 'https://api.football-data.org/v1/fixtures/222'
         }
       },
-      date: new Date('2016-10-28 22:00:00'),
+      date: new Date(matchDate2),
       status: 'FINISHED',
       matchday: 10,
       homeTeamName: 'Arsenal FC',
@@ -1275,7 +1275,7 @@ router.get('/12', function (req, res) {
           href: 'https://api.football-data.org/v1/fixtures/333'
         }
       },
-      date: new Date('2016-10-28 22:00:00'),
+      date: new Date(matchDate2),
       status: 'FINISHED',
       matchday: 10,
       homeTeamName: 'Leicester City FC',
