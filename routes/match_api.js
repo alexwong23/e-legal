@@ -6,9 +6,9 @@ var Match = require('../models/match')
 var Vote = require('../models/vote')
 
 // time now is 27 oct 13 49 00
-var matchDate = '2016-10-27 16:55:00' // + 3.1hr
-var matchDate2 = '2016-10-27 13:51:00' // + 3 min
-var matchDate3 = '2016-10-27 10:54:00' // - 2.9hr
+var matchDate = '2016-10-27 17:00:00' // + 3.1hr
+var matchDate2 = '2016-10-27 14:00:00' // + 3 min
+var matchDate3 = '2016-10-27 11:00:00' // - 2.9hr
 
 // add games to mongoDB
 router.get('/1', function (req, res) {
