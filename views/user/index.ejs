@@ -1,5 +1,4 @@
 <h1>Profile</h1>
-<a href="/logout">Logout</a>
 
 <% if(message.length > 0) { %>
   <div class="alert alert-danger">
@@ -32,22 +31,28 @@
 
   <% voteArr.forEach(function(vote) { %>
     <div class="row">
-      <div class="col-sm-2 voteHist">
+      <div class="col-sm-2">
         <h6><%= vote.matchid.date %></h6>
       </div>
-      <div class="col-sm-2 voteHist">
+      <% var userVote = "" %>
+      <% if (vote.vote === "homeTeam") { %>
+        <% userVote = "voteHome" %>
+      <% } else if (vote.vote === "awayTeam") { %>
+        <% userVote = "voteAway" %>
+      <% }%>
+      <div class="col-sm-2" id=<%= userVote %>>
         <h6><%= vote.matchid.homeTeam %></h6>
       </div>
-      <div class="col-sm-1 voteHist">
+      <div class="col-sm-1">
         <h6><%= vote.matchid.result.goalsHomeTeam %> : <%= vote.matchid.result.goalsAwayTeam %></h6>
       </div>
-      <div class="col-sm-2 voteHist">
+      <div class="col-sm-2" id=<%= userVote %>>
         <h6><%= vote.matchid.awayTeam %></h6>
       </div>
-      <div class="col-sm-2 voteHist">
+      <div class="col-sm-2">
         <h6><%= vote.result %></h6>
       </div>
-      <div class="col-sm-2 voteHist">
+      <div class="col-sm-2">
         <h6><%= vote.amount %></h6>
       </div>
     </div>
