@@ -25,8 +25,4 @@ router.get('/', userCheck, function (req, res) {
   })
 })
 
-router.get('/:id', userCheck, function (req, res) {
-
-})
-
 module.exports = router

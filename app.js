@@ -66,6 +66,19 @@ app.use(function (req, res, next) {
   next()
 })
 
+// // if (req.user) {
+// //   app.set('authuser', {id: req.user.id})
+// // }
+// })
+//
+// app.dynamicHelpers({
+//   authuser: function (req, res) {
+//     if (req.user) return { id: req.user.id}
+//
+//     return null
+//   }
+// })
+
 app.use('/', index_routes)
 app.use('/users', user_routes)
 app.use('/matches', match_routes)
