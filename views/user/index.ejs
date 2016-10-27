@@ -5,10 +5,7 @@
     <%= message %>
   </div>
 <% } %>
-
 <div class="container-fluid">
-  <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
-  <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
   <div class="container-fluid removeSpaces">
     <div class="row">
       <div class="col-md-12 removeSpaces">
@@ -17,7 +14,7 @@
             <div class="col-md-2">
                <img src="http://bikaynak.com/sites/default/files/premier-league_0.jpg" class="img-polaroid"/>
             </div>
-            <div class="col-md-4 removeSpaces">
+            <div class="col-md-2 removeSpaces">
                <h2><%= user.local.username %></h2>
               <ul class="unstyled">
                 <li><i class="icon-phone"></i> nil</li>
@@ -25,19 +22,24 @@
                 <li><i class="icon-globe"></i> nil</li>
               </ul>
             </div>
-            <div class="col-md-6 removeSpaces" id='span'>
-            <ul class="inline stats">
-                 <li>
-                   <span><%=user.local.tokens%></span>
-                   Tokens
-                </li>
-                <li>
-                   <span><%=user.local.score%></span>
-                   Score
-                </li>
-            </ul>
-              <div><!--/span6-->
-              </div><!--/row-->
+            <div class="col-md-3 removeSpaces">
+              <div class="row">
+                <h2><%=user.local.tokens%></h2>
+              </div>
+              <div class="row">
+                <h4>Tokens</h4>
+              </div>
+            </div>
+            <div class="col-md-3 removeSpaces">
+              <div class="row">
+                <h2><%=user.local.score%></h2>
+              </div>
+              <div class="row">
+                <h4>Score</h4>
+              </div>
+            </div>
+            <div class="col-md-2">
+            </div>
         </div>
         <!--Body content-->
       </div>
@@ -56,6 +58,7 @@
               <th>Home</th>
               <th>Score</th>
               <th>Away</th>
+              <th>Vote</th>
               <th>Result</th>
               <th>Tokens Placed</th>
             </tr>
@@ -72,6 +75,7 @@
               <td><%= vote.matchid.homeTeam %></td>
               <td><%= vote.matchid.result.goalsHomeTeam %> : <%= vote.matchid.result.goalsAwayTeam %></td>
               <td><%= vote.matchid.awayTeam %></td>
+              <td><%= vote.vote %></td>
               <td><%= vote.result %></td>
               <td><%= vote.amount %></td>
             </tr>

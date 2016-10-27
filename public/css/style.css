@@ -4,6 +4,10 @@ body{
     padding:50px;
 }
 
+.col-md-3.removeSpaces {
+  text-align: center;
+}
+
 .timedContainer {
   max-width: 100%;
 }
@@ -33,9 +37,12 @@ body{
 }
 .img-polaroid {
   max-width: 100px;
-  max-height: 100px;
+  min-width: 100px;
 }
-
+.unstyled {
+  list-style-type: none;
+  padding: 0px;
+}
 .modalBtn {
   width: 100px;
   height: 50px;
@@ -226,6 +233,7 @@ Image credits: unsplash.com
 /********************************/
 /*       Slides backgrounds     */
 /********************************/
+
 .fade-carousel .slides .slide-1,
 .fade-carousel .slides .slide-2,
 .fade-carousel .slides .slide-3 {
@@ -235,13 +243,13 @@ Image credits: unsplash.com
   background-repeat: no-repeat;
 }
 .fade-carousel .slides .slide-1 {
-  background-image: url(https://ununsplash.imgix.net/photo-1416339134316-0e91dc9ded92?q=75&fm=jpg&s=883a422e10fc4149893984019f63c818);
+  background-image: url(http://pre05.deviantart.net/1e7f/th/pre/f/2013/217/0/e/epl_wallpaper_by_himfin93-d6gt1mg.png);
 }
 .fade-carousel .slides .slide-2 {
-  background-image: url(https://ununsplash.imgix.net/photo-1416339684178-3a239570f315?q=75&fm=jpg&s=c39d9a3bf66d6566b9608a9f1f3765af);
+  background-image: url(https://provenquality.com/wp-content/uploads/2014/02/champions-league-stadium-sport-hd-wallpaper-1920x1080-7041.jpg);
 }
 .fade-carousel .slides .slide-3 {
-  background-image: url(https://ununsplash.imgix.net/photo-1416339276121-ba1dfa199912?q=75&fm=jpg&s=9bf9f2ef5be5cb5eee5255e7765cb327);
+  background-image: url(http://4.bp.blogspot.com/-TmCY7K1-aus/VnEXynNhx7I/AAAAAAAAC0k/WB6vsVd426o/s1600/Vardy-mahrez.jpg);
 }
 
 /********************************/
@@ -279,21 +287,21 @@ body{
   font-family:Helvetica;
   font-weight:bold;
   text-shadow:1px 1px 0px #fff;
-  font-size:4em;
+  font-size:4em;*/
 
   display:block;
   line-height:1em;
 }
 
-/* Large desktop */
+ Large desktop
 @media (min-width: 1200px) {
 }
 
-/* Portrait tablet to landscape and desktop */
+ Portrait tablet to landscape and desktop
 @media (min-width: 768px) and (max-width: 979px) {
 }
 
-/* Landscape phone to portrait tablet */
+ Landscape phone to portrait tablet
 @media (max-width: 767px) {
   .profile img{
     width:75px;
@@ -306,7 +314,7 @@ body{
   }
 }
 
-/* Landscape phones and down */
+ Landscape phones and down
 @media (max-width: 480px) {
 }
 
