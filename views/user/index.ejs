@@ -6,55 +6,83 @@
   </div>
 <% } %>
 
-<div class="container-fluid userContainer">
-  <h4>Vote History</h4>
-  <div class="row">
-    <div class="col-sm-2">
-      <h6 class="text-xs-left">Date</h6>
-    </div>
-    <div class="col-sm-2">
-      <h6>Home</h6>
-    </div>
-    <div class="col-sm-1">
-      <h6>Score</h6>
-    </div>
-    <div class="col-sm-2">
-      <h6>Away</h6>
-    </div>
-    <div class="col-sm-2">
-      <h6>Result</h6>
-    </div>
-    <div class="col-sm-2">
-      <h6>Tokens Placed</h6>
+<div class="container-fluid">
+  <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
+  <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+  <div class="container-fluid removeSpaces">
+    <div class="row">
+      <div class="col-md-12 removeSpaces">
+        <div class="well well-small clearfix">
+          <div class="row-fluid">
+            <div class="col-md-2">
+               <img src="http://bikaynak.com/sites/default/files/premier-league_0.jpg" class="img-polaroid"/>
+            </div>
+            <div class="col-md-4 removeSpaces">
+               <h2><%= user.local.username %></h2>
+              <ul class="unstyled">
+                <li><i class="icon-phone"></i> nil</li>
+                <li><i class="icon-envelope"></i> nil</li>
+                <li><i class="icon-globe"></i> nil</li>
+              </ul>
+            </div>
+            <div class="col-md-6 removeSpaces" id='span'>
+            <ul class="inline stats">
+                 <li>
+                   <span><%=user.local.tokens%></span>
+                   Tokens
+                </li>
+                <li>
+                   <span><%=user.local.score%></span>
+                   Score
+                </li>
+            </ul>
+              <div><!--/span6-->
+              </div><!--/row-->
+        </div>
+        <!--Body content-->
+      </div>
     </div>
   </div>
-
-  <% voteArr.forEach(function(vote) { %>
+  </div>
+  <div class="container-fluid removeSpaces">
+    <h4>Vote History</h4>
     <div class="row">
-      <div class="col-sm-2">
-        <h6><%= vote.matchid.date %></h6>
+      <div class="table-responsive">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Date</th>
+              <th>Home</th>
+              <th>Score</th>
+              <th>Away</th>
+              <th>Result</th>
+              <th>Tokens Placed</th>
+            </tr>
+          </thead>
+          <tbody id="myTable">
+          <% var count = 1 %>
+          <% voteArr.forEach(function(vote) { %>
+            <% var ds = new Date(vote.matchid.date)%>
+            <% var ddmmyy = ds.getDate() + "-" + ds.getMonth() + "-" + ds.getFullYear() + "  " + ds.getHours() + ":" + ((ds.getMinutes()<10?'0':'') + ds.getMinutes())%>
+            <tr>
+              <td><%= count%></td>
+              <% count++ %>
+              <td><%= ddmmyy%></td>
+              <td><%= vote.matchid.homeTeam %></td>
+              <td><%= vote.matchid.result.goalsHomeTeam %> : <%= vote.matchid.result.goalsAwayTeam %></td>
+              <td><%= vote.matchid.awayTeam %></td>
+              <td><%= vote.result %></td>
+              <td><%= vote.amount %></td>
+            </tr>
+          <% }) %>
+          </tbody>
+        </table>
       </div>
-      <% var userVote = "" %>
-      <% if (vote.vote === "homeTeam") { %>
-        <% userVote = "voteHome" %>
-      <% } else if (vote.vote === "awayTeam") { %>
-        <% userVote = "voteAway" %>
-      <% }%>
-      <div class="col-sm-2" id=<%= userVote %>>
-        <h6><%= vote.matchid.homeTeam %></h6>
+      <div class="col-md-12 text-center">
+      <ul class="pagination pagination-lg pager" id="myPager"></ul>
       </div>
-      <div class="col-sm-1">
-        <h6><%= vote.matchid.result.goalsHomeTeam %> : <%= vote.matchid.result.goalsAwayTeam %></h6>
-      </div>
-      <div class="col-sm-2" id=<%= userVote %>>
-        <h6><%= vote.matchid.awayTeam %></h6>
-      </div>
-      <div class="col-sm-2">
-        <h6><%= vote.result %></h6>
-      </div>
-      <div class="col-sm-2">
-        <h6><%= vote.amount %></h6>
-      </div>
-    </div>
-  <% }) %>
+	</div>
+</div>
+</div>
 </div>

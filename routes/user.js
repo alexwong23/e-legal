@@ -12,7 +12,7 @@ function userCheck (req, res, next) {
 }
 
 router.get('/', userCheck, function (req, res) {
-  res.redirect('/users/:id')
+  res.redirect('/users/' + req.user.id)
 })
 
 router.get('/:id', userCheck, function (req, res) {
