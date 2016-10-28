@@ -156,7 +156,7 @@ $(document).ready(function () {
     // calling timed games for next 7 days
     $.ajax({
       headers: { 'X-Auth-Token': '27abe9753e3f41729df870412f174c31' },
-      url: 'http://api.football-data.org/v1/competitions/426/fixtures?timeFrame=n7',
+      url: '//api.football-data.org/v1/competitions/426/fixtures?timeFrame=n7',
       type: 'GET',
       dataType: 'json'
     }).done(function (timed) {
@@ -170,7 +170,7 @@ $(document).ready(function () {
     // calling played games one day before
     $.ajax({
       headers: { 'X-Auth-Token': '27abe9753e3f41729df870412f174c31' },
-      url: 'http://api.football-data.org/v1/competitions/426/fixtures?timeFrame=p1',
+      url: '//api.football-data.org/v1/competitions/426/fixtures?timeFrame=p1',
       type: 'GET',
       dataType: 'json'
     }).done(function (finished) {
@@ -188,7 +188,7 @@ $(document).ready(function () {
 // calling all team details
   $.ajax({
     headers: { 'X-Auth-Token': '27abe9753e3f41729df870412f174c31' },
-    url: 'http://api.football-data.org/v1/competitions/426/teams',
+    url: '//api.football-data.org/v1/competitions/426/teams',
     type: 'GET',
     dataType: 'json'
   }).done(function (teamData) {
