@@ -7,9 +7,9 @@ var Vote = require('../models/vote')
 var Team = require('../models/team')
 
 // time now is 27 oct 13 49 00
-var matchDate = '2016-10-28 18:26:00' // + 3.1hr
-var matchDate2 = '2016-10-28 15:26:00' // current time
-var matchDate3 = '2016-10-28 12:26:00' // - 3 min
+var matchDate = '2016-10-28 23:50:00' // + 3.1hr
+var matchDate2 = '2016-10-28 20:50:00' // current time
+var matchDate3 = '2016-10-28 17:50:00' // - 3 min
 
 // add games to mongoDB
 router.get('/1', function (req, res) {

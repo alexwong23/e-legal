@@ -46,8 +46,8 @@ module.exports = function (passport) {
       if (foundUser) {
         return next(null, false, req.flash('signupMessage', 'Username has been taken'))
       } else {
-        if (!req.body.user.local.handphone) {
-          return next(null, false, req.flash('signupMessage', 'Please fill in the require fields'))
+        if (!req.body.user.local.email) {
+          return next(null, false, req.flash('signupMessage', 'Please fill in the required fields'))
         } else {
           var newUser = new User({
             local: {

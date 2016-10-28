@@ -109,7 +109,8 @@ router.post('/timed', function (req, res) {
                       $inc: {
                         'local.tokens': userToken,
                         'local.score': userScore
-                      }
+                      },
+                      'local.return': userToken
                     }, function (err) {
                       if (err) throw new Error(err)
                       Vote.findOneAndUpdate({'userid': userId, 'matchNo': data.matchNo}, {

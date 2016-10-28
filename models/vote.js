@@ -12,7 +12,7 @@ var voteSchema = new mongoose.Schema({
   matchNo: String,
   vote: String,
   amount: Number,
-  // win loss draw
+  return: Number,
   result: String
 })
 
