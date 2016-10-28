@@ -157,7 +157,7 @@ $(document).ready(function () {
     // calling all team details
       $.ajax({
         headers: { 'X-Auth-Token': '27abe9753e3f41729df870412f174c31' },
-        url: '//api.football-data.org/v1/competitions/426/teams',
+        url: 'https://api.football-data.org/v1/competitions/426/teams',
         type: 'GET',
         dataType: 'json'
       }).done(function (teamData) {
