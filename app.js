@@ -79,6 +79,7 @@ var Match = require('./models/match')
 var Team = require('./models/team')
 var io = require('socket.io')(server)
 var intervalId
+
 io.on('connect', function (socket) {
   clearInterval(intervalId)
   intervalId = setInterval(function () {
