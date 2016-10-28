@@ -154,20 +154,6 @@ $(document).ready(function () {
 
   function realTime () {
 
-    // calling all team details
-      $.ajax({
-        headers: { 'X-Auth-Token': '27abe9753e3f41729df870412f174c31' },
-        url: 'https://api.football-data.org/v1/competitions/426/teams',
-        type: 'GET',
-        dataType: 'json'
-      }).done(function (teamData) {
-        $.post({
-          type: 'POST',
-          url: '/matches/teamdata',
-          data: teamData
-        })
-      })
-
     // calling timed games for next 7 days
     $.ajax({
       headers: { 'X-Auth-Token': '27abe9753e3f41729df870412f174c31' },
@@ -200,6 +186,20 @@ $(document).ready(function () {
   }
   realTime()
 
+
+  // // calling all team details
+  //   $.ajax({
+  //     headers: { 'X-Auth-Token': '27abe9753e3f41729df870412f174c31' },
+  //     url: 'https://api.football-data.org/v1/competitions/426/teams',
+  //     type: 'GET',
+  //     dataType: 'json'
+  //   }).done(function (teamData) {
+  //     $.post({
+  //       type: 'POST',
+  //       url: '/matches/teamdata',
+  //       data: teamData
+  //     })
+  //   })
 
 
 var demoStep = 1
