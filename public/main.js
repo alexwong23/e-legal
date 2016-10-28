@@ -213,7 +213,7 @@ $('#demoStep').on('click', function () {
       }).done(function (timed) {
         $.post({
           type: 'POST',
-          url: '/matches/timed',
+          url: '/api/matches/demo',
           data: timed
         })
       })

@@ -1,9 +1,12 @@
 var express = require('express')
 var router = express.Router()
+var User = require('../models/user')
 var MatchApi = require('../models/matchapi')
 var Match = require('../models/match')
 var Vote = require('../models/vote')
 
+var g1Date = '2016-10-28 20:00:00'
+var g1Date2 = '2016-10-28 17:00:00'
 // initial
 // assume 28 oct 1659, first game stop predict, show countdown
 // assume 28 oct 1859, other games stop predict, show countdown
@@ -16,7 +19,7 @@ router.get('/1', function (req, res) {
           href: 'https://api.football-data.org/v1/fixtures/111'
         }
       },
-      date: new Date('2016-10-28 20:00:00'),
+      date: new Date(g1Date),
       status: 'TIMED',
       matchday: 10,
       homeTeamName: 'Manchester City FC',
@@ -126,7 +129,7 @@ router.get('/2', function (req, res) {
           href: 'https://api.football-data.org/v1/fixtures/111'
         }
       },
-      date: new Date('2016-10-28 20:00:00'),
+      date: new Date(g1Date2),
       status: 'IN-PLAY',
       matchday: 10,
       homeTeamName: 'Manchester City FC',
@@ -1438,6 +1441,102 @@ router.get('/13', function (req, res) {
   ]
   })
   res.json(matchAPI)
+})
+
+router.post('/demo', function (req, res) {
+  var noOfMatches = req.body.count
+  var regex = /.*?(\d+)$/
+  for (var i = 0; i < noOfMatches; i++) {
+    updateResult(i)
+  }
+  // closures!
+  function updateResult (i) {
+    var matchnumber = (regex.exec(req.body.fixtures[i]._links.self.href))[1]
+    Match.findOne({'matchNo': matchnumber}, function (err, timedMatch) {
+      if (err) throw new Error(err)
+      if (timedMatch) {
+        Match.findOneAndUpdate({'matchNo': matchnumber}, {
+          date: req.body.fixtures[i].date,
+          status: req.body.fixtures[i].status,
+          result: {
+            goalsHomeTeam: req.body.fixtures[i].result.goalsHomeTeam,
+            goalsAwayTeam: req.body.fixtures[i].result.goalsAwayTeam
+          }
+        }, function (err, data) {
+          if (err) throw new Error(err)
+          if (data) {
+            if (data.status === 'FINISHED') {
+              var matchResult
+              if (data.result.goalsHomeTeam === data.result.goalsAwayTeam) {
+                matchResult = 'draw'
+              } else if (data.result.goalsHomeTeam > data.result.goalsAwayTeam) {
+                matchResult = 'homeTeam'
+              } else if (data.result.goalsHomeTeam < data.result.goalsAwayTeam) {
+                matchResult = 'awayTeam'
+              }
+              Vote.find({'matchNo': data.matchNo, 'result': null}, function (err, userVotes) {
+                if (err) throw new Error(err)
+                for (var i = 0; i < userVotes.length; i++) {
+                  closuresNo2()
+                }
+                function closuresNo2 () {
+                  var userId = userVotes[i].userid
+                  var userPredict = userVotes[i].vote
+                  var userToken = 0
+                  var userScore = 0
+                  if (userPredict === matchResult) {
+                    userToken += (userVotes[i].amount * 2)
+                    userScore = 1
+                  } else if (matchResult === 'draw') {
+                    userToken += (userVotes[i].amount)
+                  }
+                  if (matchResult !== null) {
+                    User.findOneAndUpdate({'_id': userId}, {
+                      $inc: {
+                        'local.tokens': userToken,
+                        'local.score': userScore
+                      }
+                    }, function (err) {
+                      if (err) throw new Error(err)
+                      Vote.findOneAndUpdate({'userid': userId, 'matchNo': data.matchNo}, {
+                        'result': matchResult
+                      }, function (err, answer) {
+                        if (err) throw new Error(err)
+                        console.log(answer)
+                      })
+                    })
+                  }
+                }
+              })
+            }
+          }
+        })
+      }
+      if (!timedMatch) {
+        var newMatch = new Match({
+          matchNo: (regex.exec(req.body.fixtures[i]._links.self.href))[1],
+          date: req.body.fixtures[i].date,
+          status: req.body.fixtures[i].status,
+          matchday: req.body.fixtures[i].matchday,
+          homeTeam: req.body.fixtures[i].homeTeamName,
+          awayTeam: req.body.fixtures[i].awayTeamName,
+          result: {
+            goalsHomeTeam: req.body.fixtures[i].result.goalsHomeTeam,
+            goalsAwayTeam: req.body.fixtures[i].result.goalsAwayTeam
+          },
+          odds: {
+            homeWin: req.body.fixtures[i].odds.homeWin,
+            draw: req.body.fixtures[i].odds.draw,
+            awayWin: req.body.fixtures[i].odds.awayWin
+          }
+        })
+        newMatch.save(function (err) {
+          if (err) throw new Error(err)
+        })
+      }
+    })
+  }
+  res.json({'updated': 'ok'})
 })
 
 router.delete('/remove', function (req, res) {
