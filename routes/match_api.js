@@ -16,7 +16,7 @@ router.get('/1', function (req, res) {
           href: 'https://api.football-data.org/v1/fixtures/111'
         }
       },
-      date: new Date('2016-10-28T20:00:00Z'),
+      date: '2016-10-28T20:00:00Z',
       status: 'TIMED',
       matchday: 10,
       homeTeamName: 'Manchester City FC',
