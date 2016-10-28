@@ -154,50 +154,50 @@ $(document).ready(function () {
 
   function realTime () {
     // calling timed games for next 7 days
-    // $.ajax({
-    //   headers: { 'X-Auth-Token': '27abe9753e3f41729df870412f174c31' },
-    //   url: 'http://api.football-data.org/v1/competitions/426/fixtures?timeFrame=n7',
-    //   type: 'GET',
-    //   dataType: 'json'
-    // }).done(function (timed) {
-    //   $.post({
-    //     type: 'POST',
-    //     url: '/matches/timed',
-    //     data: timed
-    //   })
-    // })
+    $.ajax({
+      headers: { 'X-Auth-Token': '27abe9753e3f41729df870412f174c31' },
+      url: 'http://api.football-data.org/v1/competitions/426/fixtures?timeFrame=n7',
+      type: 'GET',
+      dataType: 'json'
+    }).done(function (timed) {
+      $.post({
+        type: 'POST',
+        url: '/matches/timed',
+        data: timed
+      })
+    })
 
     // calling played games one day before
-    // $.ajax({
-    //   headers: { 'X-Auth-Token': '27abe9753e3f41729df870412f174c31' },
-    //   url: 'http://api.football-data.org/v1/competitions/426/fixtures?timeFrame=p1',
-    //   type: 'GET',
-    //   dataType: 'json'
-    // }).done(function (finished) {
-    //   $.post({
-    //     type: 'POST',
-    //     url: '/matches/finished',
-    //     data: finished
-    //   })
-    // })
+    $.ajax({
+      headers: { 'X-Auth-Token': '27abe9753e3f41729df870412f174c31' },
+      url: 'http://api.football-data.org/v1/competitions/426/fixtures?timeFrame=p1',
+      type: 'GET',
+      dataType: 'json'
+    }).done(function (finished) {
+      $.post({
+        type: 'POST',
+        url: '/matches/finished',
+        data: finished
+      })
+    })
 
     setTimeout(realTime, 5000)
   }
   realTime()
 
-// // calling all team details
-  // $.ajax({
-  //   headers: { 'X-Auth-Token': '27abe9753e3f41729df870412f174c31' },
-  //   url: 'http://api.football-data.org/v1/competitions/426/teams',
-  //   type: 'GET',
-  //   dataType: 'json'
-  // }).done(function (teamData) {
-  //   $.post({
-  //     type: 'POST',
-  //     url: '/matches/teamData',
-  //     data: teamData
-  //   })
-  // })
+// calling all team details
+  $.ajax({
+    headers: { 'X-Auth-Token': '27abe9753e3f41729df870412f174c31' },
+    url: 'http://api.football-data.org/v1/competitions/426/teams',
+    type: 'GET',
+    dataType: 'json'
+  }).done(function (teamData) {
+    $.post({
+      type: 'POST',
+      url: '/matches/teamData',
+      data: teamData
+    })
+  })
 
 var demoStep = 1
 $('#demoStep').on('click', function () {
