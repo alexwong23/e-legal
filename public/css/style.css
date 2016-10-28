@@ -18,9 +18,6 @@ body{
   text-align: left;
 }
 
-.col-sm-2 {
-  padding: 0px;
-}
 .logo, #homeLogo, #awayLogo{
   width: 150px;
   height: 150px;
