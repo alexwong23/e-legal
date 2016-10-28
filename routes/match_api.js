@@ -7,8 +7,8 @@ var Vote = require('../models/vote')
 var Team = require('../models/team')
 
 // time now is 27 oct 13 49 00
-var matchDate = '2016-10-28 16:49:00' // + 3.1hr
-var matchDate2 = '2016-10-28 13:48:00' // + 3 min
+var matchDate = '2016-10-28 16:55:00' // + 3.1hr
+var matchDate2 = '2016-10-28 13:55:00' // + 3 min
 
 // add games to mongoDB
 router.get('/1', function (req, res) {
@@ -452,6 +452,116 @@ router.get('/4', function (req, res) {
 
 // first three games finished
 router.get('/5', function (req, res) {
+  var matchAPI = new MatchApi({
+    count: 5,
+    fixtures: [{
+      _links: {
+        self: {
+          href: 'https://api.football-data.org/v1/fixtures/111'
+        }
+      },
+      date: new Date(matchDate2),
+      status: 'FINISHED',
+      matchday: 10,
+      homeTeamName: 'Manchester City FC',
+      awayTeamName: 'Manchester United FC',
+      result: {
+        goalsHomeTeam: 1,
+        goalsAwayTeam: 2
+      },
+      odds: {
+        homeWin: 4,
+        draw: 1,
+        awayWin: 2
+      }
+    }, {
+      _links: {
+        self: {
+          href: 'https://api.football-data.org/v1/fixtures/222'
+        }
+      },
+      date: new Date(matchDate2),
+      status: 'FINISHED',
+      matchday: 10,
+      homeTeamName: 'Arsenal FC',
+      awayTeamName: 'Liverpool FC',
+      result: {
+        goalsHomeTeam: 2,
+        goalsAwayTeam: 2
+      },
+      odds: {
+        homeWin: 2,
+        draw: 1,
+        awayWin: 2
+      }
+    }, {
+      _links: {
+        self: {
+          href: 'https://api.football-data.org/v1/fixtures/333'
+        }
+      },
+      date: new Date(matchDate2),
+      status: 'FINISHED',
+      matchday: 10,
+      homeTeamName: 'Leicester City FC',
+      awayTeamName: 'Sunderland AFC',
+      result: {
+        goalsHomeTeam: 2,
+        goalsAwayTeam: 1
+      },
+      odds: {
+        homeWin: 3,
+        draw: 2,
+        awayWin: 1
+      }
+    }, {
+      _links: {
+        self: {
+          href: 'https://api.football-data.org/v1/fixtures/444'
+        }
+      },
+      date: new Date('2016-10-29 22:00:00'),
+      status: 'TIMED',
+      matchday: 10,
+      homeTeamName: 'Watford FC',
+      awayTeamName: 'Hull City FC',
+      result: {
+        goalsHomeTeam: null,
+        goalsAwayTeam: null
+      },
+      odds: {
+        homeWin: 2,
+        draw: 3,
+        awayWin: 2
+      }
+    }, {
+      _links: {
+        self: {
+          href: 'https://api.football-data.org/v1/fixtures/555'
+        }
+      },
+      date: new Date('2016-10-29 22:00:00'),
+      status: 'TIMED',
+      matchday: 10,
+      homeTeamName: 'Everton FC',
+      awayTeamName: 'Chelsea FC',
+      result: {
+        goalsHomeTeam: null,
+        goalsAwayTeam: null
+      },
+      odds: {
+        homeWin: 2,
+        draw: 3,
+        awayWin: 1.5
+      }
+    }
+  ]
+  })
+  res.json(matchAPI)
+})
+
+// first three games finished
+router.get('/6', function (req, res) {
   var matchAPI = new MatchApi({
     count: 5,
     fixtures: [{
