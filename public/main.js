@@ -163,11 +163,11 @@ $(document).ready(function () {
       }).done(function (teamData) {
         $.post({
           type: 'POST',
-          url: '/matches/teamData',
+          url: '/matches/teamdata',
           data: teamData
         })
       })
-      
+
     // calling timed games for next 7 days
     $.ajax({
       headers: { 'X-Auth-Token': '27abe9753e3f41729df870412f174c31' },

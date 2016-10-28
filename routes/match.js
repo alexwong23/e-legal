@@ -176,7 +176,7 @@ router.post('/finished', function (req, res) {
   res.json({status: 'ok'})
 })
 
-router.post('/teamData', function (req, res) {
+router.post('/teamdata', function (req, res) {
   var noOfTeams = req.body.count
   for (var i = 0; i < noOfTeams; i++) {
     Team.findOne({'name': req.body.teams[i].name}, function (err, existingTeam) {
