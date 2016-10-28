@@ -167,8 +167,54 @@ router.post('/finished', function (req, res) {
             goalsHomeTeam: req.body.fixtures[i].result.goalsHomeTeam,
             goalsAwayTeam: req.body.fixtures[i].result.goalsAwayTeam
           }
-        }, function (err) {
+        }, function (err, data) {
           if (err) throw new Error(err)
+          if (data) {
+            if (data.status === 'FINISHED') {
+              var matchResult
+              if (data.result.goalsHomeTeam === data.result.goalsAwayTeam) {
+                matchResult = 'draw'
+              } else if (data.result.goalsHomeTeam > data.result.goalsAwayTeam) {
+                matchResult = 'homeTeam'
+              } else if (data.result.goalsHomeTeam < data.result.goalsAwayTeam) {
+                matchResult = 'awayTeam'
+              }
+              Prediction.find({'matchNo': data.matchNo, 'result': null}, function (err, userPredictions) {
+                if (err) throw new Error(err)
+                for (var i = 0; i < userPredictions.length; i++) {
+                  closuresNo2()
+                }
+                function closuresNo2 () {
+                  var userId = userPredictions[i].userid
+                  var userPredict = userPredictions[i].prediction
+                  var userToken = 0
+                  var userScore = 0
+                  if (userPredict === matchResult) {
+                    userToken += (userPredictions[i].amount * 2)
+                    userScore = 1
+                  } else if (matchResult === 'draw') {
+                    userToken += (userPredictions[i].amount)
+                  }
+                  if (matchResult !== null) {
+                    User.findOneAndUpdate({'_id': userId}, {
+                      $inc: {
+                        'local.tokens': userToken,
+                        'local.score': userScore
+                      }
+                    }, function (err) {
+                      if (err) throw new Error(err)
+                      Prediction.findOneAndUpdate({'userid': userId, 'matchNo': data.matchNo}, {
+                        'result': matchResult
+                      }, function (err, answer) {
+                        if (err) throw new Error(err)
+                        console.log(answer)
+                      })
+                    })
+                  }
+                }
+              })
+            }
+          }
         })
       }
     })
