@@ -4,6 +4,10 @@ body{
     padding:50px;
 }
 
+.timedContainer {
+  max-width: 100%;
+}
+
 .text-xs-right {
   text-align: right;
 }
@@ -14,8 +18,8 @@ body{
   text-align: left;
 }
 .logo, #homeLogo, #awayLogo{
-  max-width: 150px;
-  max-height: 150px;
+  width: 150px;
+  height: 150px;
 }
 
 #homeLogo, #awayLogo {

@@ -182,11 +182,11 @@ router.post('/teamdata', function (req, res) {
     Team.findOne({'name': req.body.teams[i].name}, function (err, existingTeam) {
       if (err) throw new Error(err)
       if (!existingTeam) {
-        // var convertNumber = req.body.teams[i].squadMarketValue.replace(/,| |€/g, '')
+        var convertNumber = req.body.teams[i].squadMarketValue.replace(/,| |€/g, '')
         var newTeam = new Team({
           name: req.body.teams[i].name,
           shortName: req.body.teams[i].shortName,
-          // squadMarketValue_Euro: convertNumber,
+          squadMarketValue_Euro: convertNumber,
           crestUrl: req.body.teams[i].crestUrl
         })
         newTeam.save(function (err) {
