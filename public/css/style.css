@@ -1,0 +1,119 @@
+body{
+    background:url('http://deskbg.com/i/c/1920x1200/wpp/2/2633/simpsons-nelson-haha-desktop-background.jpg');
+    background-size: cover
+    padding:50px;
+}
+
+.text-xs-right {
+  text-align: right;
+}
+.text-xs-center {
+  text-align: center;
+}
+.text-xs-left {
+  text-align: left;
+}
+.logo, #homeLogo, #awayLogo{
+  max-width: 150px;
+  max-height: 150px;
+}
+
+#homeLogo, #awayLogo {
+  margin: 0 50px 0 50px;
+}
+
+#awayLogo {
+  position: relative;
+  top: -20px;
+}
+
+.modalBtn {
+  width: 100px;
+  height: 50px;
+  font-size: 20px;
+}
+
+.modalAlert {
+  padding: 6px;
+  margin: 0px;
+  text-align: left;
+}
+/*to remove radio button default*/
+.modal-teamSelect input{
+    -webkit-appearance:none;
+       -moz-appearance:none;
+            appearance:none;
+}
+/*remove all filter (brightness, grayscale, opacity) if image chosen*/
+.modal-teamSelect input:checked +.modal-teamLogo{
+    -webkit-filter: none;
+       -moz-filter: none;
+            filter: none;
+}
+/*add effects when not chosen*/
+.modal-teamLogo{
+    cursor:pointer;
+    -webkit-transition: all 100ms ease-in;
+       -moz-transition: all 100ms ease-in;
+            transition: all 100ms ease-in;
+    -webkit-filter: brightness(1) grayscale(1) opacity(.7);
+       -moz-filter: brightness(1) grayscale(1) opacity(.7);
+            filter: brightness(1) grayscale(1) opacity(.7);
+}
+/*add effects when image hovered*/
+.modal-teamLogo:hover{
+    -webkit-filter: brightness(1.2) grayscale(.5) opacity(.9);
+       -moz-filter: brightness(1.2) grayscale(.5) opacity(.9);
+            filter: brightness(1.2) grayscale(.5) opacity(.9);
+}
+
+#login-dp{
+    min-width: 250px;
+    padding: 14px 14px 0;
+    overflow:hidden;
+    background-color:rgba(255,255,255,.8);
+}
+#login-dp .help-block{
+    font-size:12px
+}
+#login-dp .bottom{
+    background-color:rgba(255,255,255,.8);
+    border-top:1px solid #ddd;
+    clear:both;
+    padding:14px;
+}
+#login-dp .social-buttons{
+    margin:12px 0
+}
+#login-dp .social-buttons a{
+    width: 49%;
+}
+#login-dp .form-group {
+    margin-bottom: 10px;
+}
+.btn-fb{
+    color: #fff;
+    background-color:#3b5998;
+}
+.btn-fb:hover{
+    color: #fff;
+    background-color:#496ebc
+}
+.btn-tw{
+    color: #fff;
+    background-color:#55acee;
+}
+.btn-tw:hover{
+    color: #fff;
+    background-color:#59b5fa;
+}
+@media(max-width:768px){
+    #login-dp{
+        background-color: inherit;
+        color: #fff;
+    }
+    #login-dp .bottom{
+        background-color: inherit;
+        border-top:0 none;
+    }
+}
