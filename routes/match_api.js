@@ -13,7 +13,7 @@ router.get('/1', function (req, res) {
     fixtures: [{
       _links: {
         self: {
-          href: 'http://api.football-data.org/v1/fixtures/111'
+          href: 'https://api.football-data.org/v1/fixtures/111'
         }
       },
       date: new Date('2016-10-28 20:00:00'),
@@ -33,7 +33,7 @@ router.get('/1', function (req, res) {
     }, {
       _links: {
         self: {
-          href: 'http://api.football-data.org/v1/fixtures/222'
+          href: 'https://api.football-data.org/v1/fixtures/222'
         }
       },
       date: new Date('2016-10-28 22:00:00'),
@@ -53,7 +53,7 @@ router.get('/1', function (req, res) {
     }, {
       _links: {
         self: {
-          href: 'http://api.football-data.org/v1/fixtures/333'
+          href: 'https://api.football-data.org/v1/fixtures/333'
         }
       },
       date: new Date('2016-10-28 22:00:00'),
@@ -73,7 +73,7 @@ router.get('/1', function (req, res) {
     }, {
       _links: {
         self: {
-          href: 'http://api.football-data.org/v1/fixtures/444'
+          href: 'https://api.football-data.org/v1/fixtures/444'
         }
       },
       date: new Date('2016-10-29 22:00:00'),
@@ -93,7 +93,7 @@ router.get('/1', function (req, res) {
     }, {
       _links: {
         self: {
-          href: 'http://api.football-data.org/v1/fixtures/555'
+          href: 'https://api.football-data.org/v1/fixtures/555'
         }
       },
       date: new Date('2016-10-29 22:00:00'),
@@ -123,7 +123,7 @@ router.get('/2', function (req, res) {
     fixtures: [{
       _links: {
         self: {
-          href: 'http://api.football-data.org/v1/fixtures/111'
+          href: 'https://api.football-data.org/v1/fixtures/111'
         }
       },
       date: new Date('2016-10-28 20:00:00'),
@@ -143,7 +143,7 @@ router.get('/2', function (req, res) {
     }, {
       _links: {
         self: {
-          href: 'http://api.football-data.org/v1/fixtures/222'
+          href: 'https://api.football-data.org/v1/fixtures/222'
         }
       },
       date: new Date('2016-10-28 22:00:00'),
@@ -163,7 +163,7 @@ router.get('/2', function (req, res) {
     }, {
       _links: {
         self: {
-          href: 'http://api.football-data.org/v1/fixtures/333'
+          href: 'https://api.football-data.org/v1/fixtures/333'
         }
       },
       date: new Date('2016-10-28 22:00:00'),
@@ -183,7 +183,7 @@ router.get('/2', function (req, res) {
     }, {
       _links: {
         self: {
-          href: 'http://api.football-data.org/v1/fixtures/444'
+          href: 'https://api.football-data.org/v1/fixtures/444'
         }
       },
       date: new Date('2016-10-29 22:00:00'),
@@ -203,7 +203,7 @@ router.get('/2', function (req, res) {
     }, {
       _links: {
         self: {
-          href: 'http://api.football-data.org/v1/fixtures/555'
+          href: 'https://api.football-data.org/v1/fixtures/555'
         }
       },
       date: new Date('2016-10-29 22:00:00'),
@@ -233,7 +233,7 @@ router.get('/3', function (req, res) {
     fixtures: [{
       _links: {
         self: {
-          href: 'http://api.football-data.org/v1/fixtures/111'
+          href: 'https://api.football-data.org/v1/fixtures/111'
         }
       },
       date: new Date('2016-10-28 20:00:00'),
@@ -253,7 +253,7 @@ router.get('/3', function (req, res) {
     }, {
       _links: {
         self: {
-          href: 'http://api.football-data.org/v1/fixtures/222'
+          href: 'https://api.football-data.org/v1/fixtures/222'
         }
       },
       date: new Date('2016-10-28 22:00:00'),
@@ -273,7 +273,7 @@ router.get('/3', function (req, res) {
     }, {
       _links: {
         self: {
-          href: 'http://api.football-data.org/v1/fixtures/333'
+          href: 'https://api.football-data.org/v1/fixtures/333'
         }
       },
       date: new Date('2016-10-28 22:00:00'),
@@ -293,7 +293,7 @@ router.get('/3', function (req, res) {
     }, {
       _links: {
         self: {
-          href: 'http://api.football-data.org/v1/fixtures/444'
+          href: 'https://api.football-data.org/v1/fixtures/444'
         }
       },
       date: new Date('2016-10-29 22:00:00'),
@@ -313,7 +313,7 @@ router.get('/3', function (req, res) {
     }, {
       _links: {
         self: {
-          href: 'http://api.football-data.org/v1/fixtures/555'
+          href: 'https://api.football-data.org/v1/fixtures/555'
         }
       },
       date: new Date('2016-10-29 22:00:00'),
@@ -343,7 +343,7 @@ router.get('/4', function (req, res) {
     fixtures: [{
       _links: {
         self: {
-          href: 'http://api.football-data.org/v1/fixtures/111'
+          href: 'https://api.football-data.org/v1/fixtures/111'
         }
       },
       date: new Date('2016-10-28 20:00:00'),
@@ -363,7 +363,7 @@ router.get('/4', function (req, res) {
     }, {
       _links: {
         self: {
-          href: 'http://api.football-data.org/v1/fixtures/222'
+          href: 'https://api.football-data.org/v1/fixtures/222'
         }
       },
       date: new Date('2016-10-28 22:00:00'),
@@ -383,7 +383,7 @@ router.get('/4', function (req, res) {
     }, {
       _links: {
         self: {
-          href: 'http://api.football-data.org/v1/fixtures/333'
+          href: 'https://api.football-data.org/v1/fixtures/333'
         }
       },
       date: new Date('2016-10-28 22:00:00'),
@@ -403,7 +403,7 @@ router.get('/4', function (req, res) {
     }, {
       _links: {
         self: {
-          href: 'http://api.football-data.org/v1/fixtures/444'
+          href: 'https://api.football-data.org/v1/fixtures/444'
         }
       },
       date: new Date('2016-10-29 22:00:00'),
@@ -423,7 +423,7 @@ router.get('/4', function (req, res) {
     }, {
       _links: {
         self: {
-          href: 'http://api.football-data.org/v1/fixtures/555'
+          href: 'https://api.football-data.org/v1/fixtures/555'
         }
       },
       date: new Date('2016-10-29 22:00:00'),
@@ -453,7 +453,7 @@ router.get('/5', function (req, res) {
     fixtures: [{
       _links: {
         self: {
-          href: 'http://api.football-data.org/v1/fixtures/111'
+          href: 'https://api.football-data.org/v1/fixtures/111'
         }
       },
       date: new Date('2016-10-28 20:00:00'),
@@ -473,7 +473,7 @@ router.get('/5', function (req, res) {
     }, {
       _links: {
         self: {
-          href: 'http://api.football-data.org/v1/fixtures/222'
+          href: 'https://api.football-data.org/v1/fixtures/222'
         }
       },
       date: new Date('2016-10-28 22:00:00'),
@@ -493,7 +493,7 @@ router.get('/5', function (req, res) {
     }, {
       _links: {
         self: {
-          href: 'http://api.football-data.org/v1/fixtures/333'
+          href: 'https://api.football-data.org/v1/fixtures/333'
         }
       },
       date: new Date('2016-10-28 22:00:00'),
@@ -513,7 +513,7 @@ router.get('/5', function (req, res) {
     }, {
       _links: {
         self: {
-          href: 'http://api.football-data.org/v1/fixtures/444'
+          href: 'https://api.football-data.org/v1/fixtures/444'
         }
       },
       date: new Date('2016-10-29 22:00:00'),
@@ -533,7 +533,7 @@ router.get('/5', function (req, res) {
     }, {
       _links: {
         self: {
-          href: 'http://api.football-data.org/v1/fixtures/555'
+          href: 'https://api.football-data.org/v1/fixtures/555'
         }
       },
       date: new Date('2016-10-29 22:00:00'),
@@ -563,7 +563,7 @@ router.get('/6', function (req, res) {
     fixtures: [{
       _links: {
         self: {
-          href: 'http://api.football-data.org/v1/fixtures/111'
+          href: 'https://api.football-data.org/v1/fixtures/111'
         }
       },
       date: new Date('2016-10-28 20:00:00'),
@@ -583,7 +583,7 @@ router.get('/6', function (req, res) {
     }, {
       _links: {
         self: {
-          href: 'http://api.football-data.org/v1/fixtures/222'
+          href: 'https://api.football-data.org/v1/fixtures/222'
         }
       },
       date: new Date('2016-10-28 22:00:00'),
@@ -603,7 +603,7 @@ router.get('/6', function (req, res) {
     }, {
       _links: {
         self: {
-          href: 'http://api.football-data.org/v1/fixtures/333'
+          href: 'https://api.football-data.org/v1/fixtures/333'
         }
       },
       date: new Date('2016-10-28 22:00:00'),
@@ -623,7 +623,7 @@ router.get('/6', function (req, res) {
     }, {
       _links: {
         self: {
-          href: 'http://api.football-data.org/v1/fixtures/444'
+          href: 'https://api.football-data.org/v1/fixtures/444'
         }
       },
       date: new Date('2016-10-29 22:00:00'),
@@ -643,7 +643,7 @@ router.get('/6', function (req, res) {
     }, {
       _links: {
         self: {
-          href: 'http://api.football-data.org/v1/fixtures/555'
+          href: 'https://api.football-data.org/v1/fixtures/555'
         }
       },
       date: new Date('2016-10-29 22:00:00'),
@@ -673,7 +673,7 @@ router.get('/7', function (req, res) {
     fixtures: [{
       _links: {
         self: {
-          href: 'http://api.football-data.org/v1/fixtures/111'
+          href: 'https://api.football-data.org/v1/fixtures/111'
         }
       },
       date: new Date('2016-10-28 20:00:00'),
@@ -693,7 +693,7 @@ router.get('/7', function (req, res) {
     }, {
       _links: {
         self: {
-          href: 'http://api.football-data.org/v1/fixtures/222'
+          href: 'https://api.football-data.org/v1/fixtures/222'
         }
       },
       date: new Date('2016-10-28 22:00:00'),
@@ -713,7 +713,7 @@ router.get('/7', function (req, res) {
     }, {
       _links: {
         self: {
-          href: 'http://api.football-data.org/v1/fixtures/333'
+          href: 'https://api.football-data.org/v1/fixtures/333'
         }
       },
       date: new Date('2016-10-28 22:00:00'),
@@ -733,7 +733,7 @@ router.get('/7', function (req, res) {
     }, {
       _links: {
         self: {
-          href: 'http://api.football-data.org/v1/fixtures/444'
+          href: 'https://api.football-data.org/v1/fixtures/444'
         }
       },
       date: new Date('2016-10-29 22:00:00'),
@@ -753,7 +753,7 @@ router.get('/7', function (req, res) {
     }, {
       _links: {
         self: {
-          href: 'http://api.football-data.org/v1/fixtures/555'
+          href: 'https://api.football-data.org/v1/fixtures/555'
         }
       },
       date: new Date('2016-10-29 22:00:00'),
@@ -783,7 +783,7 @@ router.get('/8', function (req, res) {
     fixtures: [{
       _links: {
         self: {
-          href: 'http://api.football-data.org/v1/fixtures/111'
+          href: 'https://api.football-data.org/v1/fixtures/111'
         }
       },
       date: new Date('2016-10-28 20:00:00'),
@@ -803,7 +803,7 @@ router.get('/8', function (req, res) {
     }, {
       _links: {
         self: {
-          href: 'http://api.football-data.org/v1/fixtures/222'
+          href: 'https://api.football-data.org/v1/fixtures/222'
         }
       },
       date: new Date('2016-10-28 22:00:00'),
@@ -823,7 +823,7 @@ router.get('/8', function (req, res) {
     }, {
       _links: {
         self: {
-          href: 'http://api.football-data.org/v1/fixtures/333'
+          href: 'https://api.football-data.org/v1/fixtures/333'
         }
       },
       date: new Date('2016-10-28 22:00:00'),
@@ -843,7 +843,7 @@ router.get('/8', function (req, res) {
     }, {
       _links: {
         self: {
-          href: 'http://api.football-data.org/v1/fixtures/444'
+          href: 'https://api.football-data.org/v1/fixtures/444'
         }
       },
       date: new Date('2016-10-29 22:00:00'),
@@ -863,7 +863,7 @@ router.get('/8', function (req, res) {
     }, {
       _links: {
         self: {
-          href: 'http://api.football-data.org/v1/fixtures/555'
+          href: 'https://api.football-data.org/v1/fixtures/555'
         }
       },
       date: new Date('2016-10-29 22:00:00'),
@@ -894,7 +894,7 @@ router.get('/9', function (req, res) {
     fixtures: [{
       _links: {
         self: {
-          href: 'http://api.football-data.org/v1/fixtures/111'
+          href: 'https://api.football-data.org/v1/fixtures/111'
         }
       },
       date: new Date('2016-10-28 20:00:00'),
@@ -914,7 +914,7 @@ router.get('/9', function (req, res) {
     }, {
       _links: {
         self: {
-          href: 'http://api.football-data.org/v1/fixtures/222'
+          href: 'https://api.football-data.org/v1/fixtures/222'
         }
       },
       date: new Date('2016-10-28 22:00:00'),
@@ -934,7 +934,7 @@ router.get('/9', function (req, res) {
     }, {
       _links: {
         self: {
-          href: 'http://api.football-data.org/v1/fixtures/333'
+          href: 'https://api.football-data.org/v1/fixtures/333'
         }
       },
       date: new Date('2016-10-28 22:00:00'),
@@ -954,7 +954,7 @@ router.get('/9', function (req, res) {
     }, {
       _links: {
         self: {
-          href: 'http://api.football-data.org/v1/fixtures/444'
+          href: 'https://api.football-data.org/v1/fixtures/444'
         }
       },
       date: new Date('2016-10-29 22:00:00'),
@@ -974,7 +974,7 @@ router.get('/9', function (req, res) {
     }, {
       _links: {
         self: {
-          href: 'http://api.football-data.org/v1/fixtures/555'
+          href: 'https://api.football-data.org/v1/fixtures/555'
         }
       },
       date: new Date('2016-10-29 22:00:00'),
@@ -1006,7 +1006,7 @@ router.get('/10', function (req, res) {
     fixtures: [{
       _links: {
         self: {
-          href: 'http://api.football-data.org/v1/fixtures/111'
+          href: 'https://api.football-data.org/v1/fixtures/111'
         }
       },
       date: new Date('2016-10-28 20:00:00'),
@@ -1026,7 +1026,7 @@ router.get('/10', function (req, res) {
     }, {
       _links: {
         self: {
-          href: 'http://api.football-data.org/v1/fixtures/222'
+          href: 'https://api.football-data.org/v1/fixtures/222'
         }
       },
       date: new Date('2016-10-28 22:00:00'),
@@ -1046,7 +1046,7 @@ router.get('/10', function (req, res) {
     }, {
       _links: {
         self: {
-          href: 'http://api.football-data.org/v1/fixtures/333'
+          href: 'https://api.football-data.org/v1/fixtures/333'
         }
       },
       date: new Date('2016-10-28 22:00:00'),
@@ -1066,7 +1066,7 @@ router.get('/10', function (req, res) {
     }, {
       _links: {
         self: {
-          href: 'http://api.football-data.org/v1/fixtures/444'
+          href: 'https://api.football-data.org/v1/fixtures/444'
         }
       },
       date: new Date('2016-10-29 22:00:00'),
@@ -1086,7 +1086,7 @@ router.get('/10', function (req, res) {
     }, {
       _links: {
         self: {
-          href: 'http://api.football-data.org/v1/fixtures/555'
+          href: 'https://api.football-data.org/v1/fixtures/555'
         }
       },
       date: new Date('2016-10-29 22:00:00'),
@@ -1116,7 +1116,7 @@ router.get('/11', function (req, res) {
     fixtures: [{
       _links: {
         self: {
-          href: 'http://api.football-data.org/v1/fixtures/111'
+          href: 'https://api.football-data.org/v1/fixtures/111'
         }
       },
       date: new Date('2016-10-28 20:00:00'),
@@ -1136,7 +1136,7 @@ router.get('/11', function (req, res) {
     }, {
       _links: {
         self: {
-          href: 'http://api.football-data.org/v1/fixtures/222'
+          href: 'https://api.football-data.org/v1/fixtures/222'
         }
       },
       date: new Date('2016-10-28 22:00:00'),
@@ -1156,7 +1156,7 @@ router.get('/11', function (req, res) {
     }, {
       _links: {
         self: {
-          href: 'http://api.football-data.org/v1/fixtures/333'
+          href: 'https://api.football-data.org/v1/fixtures/333'
         }
       },
       date: new Date('2016-10-28 22:00:00'),
@@ -1176,7 +1176,7 @@ router.get('/11', function (req, res) {
     }, {
       _links: {
         self: {
-          href: 'http://api.football-data.org/v1/fixtures/444'
+          href: 'https://api.football-data.org/v1/fixtures/444'
         }
       },
       date: new Date('2016-10-29 22:00:00'),
@@ -1196,7 +1196,7 @@ router.get('/11', function (req, res) {
     }, {
       _links: {
         self: {
-          href: 'http://api.football-data.org/v1/fixtures/555'
+          href: 'https://api.football-data.org/v1/fixtures/555'
         }
       },
       date: new Date('2016-10-29 22:00:00'),
@@ -1227,7 +1227,7 @@ router.get('/12', function (req, res) {
     fixtures: [{
       _links: {
         self: {
-          href: 'http://api.football-data.org/v1/fixtures/111'
+          href: 'https://api.football-data.org/v1/fixtures/111'
         }
       },
       date: new Date('2016-10-28 20:00:00'),
@@ -1247,7 +1247,7 @@ router.get('/12', function (req, res) {
     }, {
       _links: {
         self: {
-          href: 'http://api.football-data.org/v1/fixtures/222'
+          href: 'https://api.football-data.org/v1/fixtures/222'
         }
       },
       date: new Date('2016-10-28 22:00:00'),
@@ -1267,7 +1267,7 @@ router.get('/12', function (req, res) {
     }, {
       _links: {
         self: {
-          href: 'http://api.football-data.org/v1/fixtures/333'
+          href: 'https://api.football-data.org/v1/fixtures/333'
         }
       },
       date: new Date('2016-10-28 22:00:00'),
@@ -1287,7 +1287,7 @@ router.get('/12', function (req, res) {
     }, {
       _links: {
         self: {
-          href: 'http://api.football-data.org/v1/fixtures/444'
+          href: 'https://api.football-data.org/v1/fixtures/444'
         }
       },
       date: new Date('2016-10-29 22:00:00'),
@@ -1307,7 +1307,7 @@ router.get('/12', function (req, res) {
     }, {
       _links: {
         self: {
-          href: 'http://api.football-data.org/v1/fixtures/555'
+          href: 'https://api.football-data.org/v1/fixtures/555'
         }
       },
       date: new Date('2016-10-29 22:00:00'),
@@ -1337,7 +1337,7 @@ router.get('/13', function (req, res) {
     fixtures: [{
       _links: {
         self: {
-          href: 'http://api.football-data.org/v1/fixtures/444'
+          href: 'https://api.football-data.org/v1/fixtures/444'
         }
       },
       date: new Date('2016-10-29 22:00:00'),
@@ -1357,7 +1357,7 @@ router.get('/13', function (req, res) {
     }, {
       _links: {
         self: {
-          href: 'http://api.football-data.org/v1/fixtures/555'
+          href: 'https://api.football-data.org/v1/fixtures/555'
         }
       },
       date: new Date('2016-10-29 22:00:00'),
@@ -1377,7 +1377,7 @@ router.get('/13', function (req, res) {
     }, {
       _links: {
         self: {
-          href: 'http://api.football-data.org/v1/fixtures/777'
+          href: 'https://api.football-data.org/v1/fixtures/777'
         }
       },
       date: new Date('2016-11-4 20:00:00'),
@@ -1397,7 +1397,7 @@ router.get('/13', function (req, res) {
     }, {
       _links: {
         self: {
-          href: 'http://api.football-data.org/v1/fixtures/888'
+          href: 'https://api.football-data.org/v1/fixtures/888'
         }
       },
       date: new Date('2016-11-4 22:00:00'),
@@ -1417,7 +1417,7 @@ router.get('/13', function (req, res) {
     }, {
       _links: {
         self: {
-          href: 'http://api.football-data.org/v1/fixtures/999'
+          href: 'https://api.football-data.org/v1/fixtures/999'
         }
       },
       date: new Date('2016-11-4 22:00:00'),

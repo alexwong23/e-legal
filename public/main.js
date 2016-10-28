@@ -207,7 +207,7 @@ $('#demoStep').on('click', function () {
   $('#demoStep').text('demo ' + demoStep)
     function demo (no) {
       $.ajax({
-        url: 'http://localhost:4000/api/matches/' + no,
+        url: 'https://localhost:4000/api/matches/' + no,
         type: 'GET',
         dataType: 'json'
       }).done(function (timed) {
