@@ -5,6 +5,9 @@ var userSchema = new mongoose.Schema({
   local: {
     username: {type: String, required: true, unique: true},
     password: {type: String, required: true},
+    handphone: Number,
+    email: String,
+    favTeam: String,
     tokens: Number,
     score: Number
   }

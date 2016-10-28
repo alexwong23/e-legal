@@ -46,19 +46,25 @@ module.exports = function (passport) {
       if (foundUser) {
         return next(null, false, req.flash('signupMessage', 'Username has been taken'))
       } else {
-        var newUser = new User({
-          local: {
-            username: username,
-            password: password,
-            tokens: 10,
-            score: 0
-          }
-        })
-        newUser.save(function (err, newUser) {
-          if (err) throw err
-
-          return next(null, newUser)
-        })
+        if (!req.body.user.local.handphone) {
+          return next(null, false, req.flash('signupMessage', 'Please fill in the require fields'))
+        } else {
+          var newUser = new User({
+            local: {
+              username: username,
+              password: password,
+              handphone: req.body.user.local.handphone,
+              email: req.body.user.local.email,
+              favTeam: req.body.user.local.favTeam,
+              tokens: 10,
+              score: 0
+            }
+          })
+          newUser.save(function (err, newUser) {
+            if (err) throw err
+            return next(null, newUser)
+          })
+        }
       }
     })
   }))
