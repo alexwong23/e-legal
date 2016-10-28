@@ -7,9 +7,9 @@ var Vote = require('../models/vote')
 var Team = require('../models/team')
 
 // time now is 27 oct 13 49 00
-var matchDate = '2016-10-28 17:02:00' // + 3.1hr
-var matchDate2 = '2016-10-28 14:02:00' // + 3 min
-var matchDate3 = '2016-10-28 11:02:00' // - 3 min
+var matchDate = '2016-10-28 18:32:00' // + 3.1hr
+var matchDate2 = '2016-10-28 15:32:00' // current time
+var matchDate3 = '2016-10-28 12:32:00' // - 3 min
 
 // add games to mongoDB
 router.get('/1', function (req, res) {
@@ -671,7 +671,7 @@ router.get('/6', function (req, res) {
   res.json(matchAPI)
 })
 
-// first three games finished
+// first two games end
 router.get('/7', function (req, res) {
   var matchAPI = new MatchApi({
     count: 5,
