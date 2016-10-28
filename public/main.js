@@ -24,9 +24,9 @@ $(document).ready(function () {
       createdDOM = true
       liveMatch.update.forEach(function (match) {
         $('#' + match.matchNo).remove()
-        var row = $('<div class=\"row updateRow\"><div class=\"col-sm-4\"><div class=\"card card-block text-xs-left ' + match.matchNo + 'updateLeft\"></div></div><div class=\"col-sm-4\"><div class=\"card card-block text-xs-center\"><div class=\"card-header ' + match.matchNo + 'updateMiddleHeader\"></div><div class=\"' + match.matchNo + 'updateMiddle\"></div><div class=\"card-footer text-muted ' + match.matchNo + 'updateMiddleFooter\"></div></div></div><div class=\"col-sm-4\"><div class=\"card card-block text-xs-right ' + match.matchNo + 'updateRight\"></div></div></div>')
+        var row = $('<div class="row updateRow"><div class="col-sm-4"><div class="card card-block text-xs-left ' + match.matchNo + 'updateLeft"></div></div><div class="col-sm-4"><div class="card card-block text-xs-center"><div class="card-header ' + match.matchNo + 'updateMiddleHeader"></div><div class="' + match.matchNo + 'updateMiddle"></div><div class="card-footer text-muted ' + match.matchNo + 'updateMiddleFooter"></div></div></div><div class="col-sm-4"><div class="card card-block text-xs-right ' + match.matchNo + 'updateRight"></div></div></div>')
         $('.updateContainer').append(row)
-        function teamDiv(side, imgSrc, headerText, shortName) {
+        function teamDiv (side, imgSrc, headerText, shortName) {
           var img = $('<img>')
           img.attr({
             'class': 'card-img-top logo',
@@ -121,7 +121,7 @@ $(document).ready(function () {
   })
   $('#newVote').on('click', function () {
     $voteData.token = $('#token').val()
-    $voteData.vote = $('input[name=\"team-name"]:checked').val()
+    $voteData.vote = $('input[name="team-name"]:checked').val()
     if (!$dbData.user) {
       $('.modalAlert').removeClass('hide')
       $('.modalAlert').text('You need an account to vote!')
@@ -143,10 +143,32 @@ $(document).ready(function () {
     }
   })
 
-var demoStep = 1
-$('#demoStep').on('click', function () {
-  demo(demoStep)
-  $('#demoStep').text('demo ' + demoStep)
+  $('#myCarousel').carousel({
+    // interval: 4000
+  })
+
+  var clickEvent = false
+  $('#myCarousel').on('click', '.nav a', function () {
+    clickEvent = true
+    $('.nav li').removeClass('active')
+    $(this).parent().addClass('active')
+  }).on('slid.bs.carousel', function (e) {
+    if (!clickEvent) {
+      var count = $('.nav').children().length - 1
+      var current = $('.nav li.active')
+      current.removeClass('active').next().addClass('active')
+      var id = parseInt(current.data('slide-to'))
+      if (count == id) {
+        $('.nav li').first().addClass('active')
+      }
+    }
+    clickEvent = false
+  })
+
+  var demoStep = 1
+  $('#demoStep').on('click', function () {
+    demo(demoStep)
+    $('#demoStep').text('demo ' + demoStep)
     function demo (no) {
       $.ajax({
         url: 'https://e-legal.herokuapp.com/api/matches/' + no,
@@ -161,17 +183,17 @@ $('#demoStep').on('click', function () {
       })
       demoStep += 1
     }
-})
-
-$('#demoRemove').on('click', function () {
-  var remove = true
-  $.ajax({
-    type: 'delete',
-    url: '/api/matches/remove'
-  }).done(function (response) {
-    window.location = '/api/matches'
   })
-})
+
+  $('#demoRemove').on('click', function () {
+    var remove = true
+    $.ajax({
+      type: 'delete',
+      url: '/api/matches/remove'
+    }).done(function (response) {
+      window.location = '/api/matches'
+    })
+  })
 })
 
 // // calling all team details
@@ -188,35 +210,35 @@ $('#demoRemove').on('click', function () {
 //     })
 //   })
 
-function realTime () {
-  // calling timed games for next 7 days
-  $.ajax({
-    headers: { 'X-Auth-Token': '27abe9753e3f41729df870412f174c31' },
-    url: '//api.football-data.org/v1/competitions/426/fixtures?timeFrame=n7',
-    type: 'GET',
-    dataType: 'json'
-  }).done(function (timed) {
-    $.post({
-      type: 'POST',
-      url: '/matches/timed',
-      data: timed
-    })
-  })
-
-  // calling played games one day before
-  $.ajax({
-    headers: { 'X-Auth-Token': '27abe9753e3f41729df870412f174c31' },
-    url: '//api.football-data.org/v1/competitions/426/fixtures?timeFrame=p1',
-    type: 'GET',
-    dataType: 'json'
-  }).done(function (finished) {
-    $.post({
-      type: 'POST',
-      url: '/matches/finished',
-      data: finished
-    })
-  })
-
-  setTimeout(realTime, 5000)
-}
-realTime()
+// function realTime () {
+//   // calling timed games for next 7 days
+//   $.ajax({
+//     headers: { 'X-Auth-Token': '27abe9753e3f41729df870412f174c31' },
+//     url: '//api.football-data.org/v1/competitions/426/fixtures?timeFrame=n7',
+//     type: 'GET',
+//     dataType: 'json'
+//   }).done(function (timed) {
+//     $.post({
+//       type: 'POST',
+//       url: '/matches/timed',
+//       data: timed
+//     })
+//   })
+//
+//   // calling played games one day before
+//   $.ajax({
+//     headers: { 'X-Auth-Token': '27abe9753e3f41729df870412f174c31' },
+//     url: '//api.football-data.org/v1/competitions/426/fixtures?timeFrame=p1',
+//     type: 'GET',
+//     dataType: 'json'
+//   }).done(function (finished) {
+//     $.post({
+//       type: 'POST',
+//       url: '/matches/finished',
+//       data: finished
+//     })
+//   })
+//
+//   setTimeout(realTime, 5000)
+// }
+// realTime()
