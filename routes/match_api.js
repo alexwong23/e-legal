@@ -7,8 +7,9 @@ var Vote = require('../models/vote')
 var Team = require('../models/team')
 
 // time now is 27 oct 13 49 00
-var matchDate = '2016-10-28 16:55:00' // + 3.1hr
-var matchDate2 = '2016-10-28 13:55:00' // + 3 min
+var matchDate = '2016-10-28 17:02:00' // + 3.1hr
+var matchDate2 = '2016-10-28 14:02:00' // + 3 min
+var matchDate3 = '2016-10-28 11:02:00' // - 3 min
 
 // add games to mongoDB
 router.get('/1', function (req, res) {
@@ -680,7 +681,7 @@ router.get('/7', function (req, res) {
           href: 'https://api.football-data.org/v1/fixtures/111'
         }
       },
-      date: new Date(matchDate2),
+      date: new Date(matchDate3),
       status: 'FINISHED',
       matchday: 10,
       homeTeamName: 'Manchester City FC',
@@ -700,7 +701,7 @@ router.get('/7', function (req, res) {
           href: 'https://api.football-data.org/v1/fixtures/222'
         }
       },
-      date: new Date(matchDate2),
+      date: new Date(matchDate3),
       status: 'FINISHED',
       matchday: 10,
       homeTeamName: 'Arsenal FC',
@@ -720,7 +721,7 @@ router.get('/7', function (req, res) {
           href: 'https://api.football-data.org/v1/fixtures/333'
         }
       },
-      date: new Date(matchDate2),
+      date: new Date(matchDate3),
       status: 'FINISHED',
       matchday: 10,
       homeTeamName: 'Leicester City FC',
