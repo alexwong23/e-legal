@@ -1,7 +1,5 @@
 var express = require('express')
 var router = express.Router()
-var User = require('../models/user')
-var Match = require('../models/match')
 var Vote = require('../models/vote')
 
 function userCheck (req, res, next) {
@@ -25,6 +23,10 @@ router.get('/', userCheck, function (req, res) {
       voteArr: voteArr
     })
   })
+})
+
+router.get('/:id', userCheck, function (req, res) {
+
 })
 
 module.exports = router
