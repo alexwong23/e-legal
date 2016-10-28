@@ -721,7 +721,7 @@ router.get('/7', function (req, res) {
           href: 'https://api.football-data.org/v1/fixtures/333'
         }
       },
-      date: new Date(matchDate3),
+      date: new Date(matchDate2),
       status: 'FINISHED',
       matchday: 10,
       homeTeamName: 'Leicester City FC',
