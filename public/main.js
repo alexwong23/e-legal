@@ -197,6 +197,33 @@ $(document).ready(function () {
 //     })
 //   })
 
+// update previous matchdays
+$.ajax({
+  headers: { 'X-Auth-Token': '27abe9753e3f41729df870412f174c31' },
+  url: '//api.football-data.org/v1/competitions/426/fixtures?matchday=1',
+  type: 'GET',
+  dataType: 'json'
+}).done(function (timed) {
+  $.post({
+    type: 'POST',
+    url: '/matches/timed',
+    data: timed
+  })
+})
+
+$.ajax({
+  headers: { 'X-Auth-Token': '27abe9753e3f41729df870412f174c31' },
+  url: '//api.football-data.org/v1/competitions/426/fixtures?matchday=2',
+  type: 'GET',
+  dataType: 'json'
+}).done(function (timed) {
+  $.post({
+    type: 'POST',
+    url: '/matches/timed',
+    data: timed
+  })
+})
+
 function realTime () {
   // calling timed games for next 7 days
   $.ajax({
