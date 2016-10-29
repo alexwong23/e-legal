@@ -23,7 +23,7 @@ router.get('/1', function (req, res) {
       },
       date: new Date(matchDate),
       status: 'TIMED',
-      matchday: 10,
+      matchday: 0,
       homeTeamName: 'Manchester City FC',
       awayTeamName: 'Manchester United FC',
       result: {
@@ -43,7 +43,7 @@ router.get('/1', function (req, res) {
       },
       date: new Date(matchDate),
       status: 'TIMED',
-      matchday: 10,
+      matchday: 0,
       homeTeamName: 'Arsenal FC',
       awayTeamName: 'Liverpool FC',
       result: {
@@ -63,7 +63,7 @@ router.get('/1', function (req, res) {
       },
       date: new Date(matchDate),
       status: 'TIMED',
-      matchday: 10,
+      matchday: 0,
       homeTeamName: 'Leicester City FC',
       awayTeamName: 'Sunderland AFC',
       result: {
@@ -83,7 +83,7 @@ router.get('/1', function (req, res) {
       },
       date: new Date('2016-10-29 22:00:00'),
       status: 'TIMED',
-      matchday: 10,
+      matchday: 0,
       homeTeamName: 'Watford FC',
       awayTeamName: 'Hull City FC',
       result: {
@@ -103,7 +103,7 @@ router.get('/1', function (req, res) {
       },
       date: new Date('2016-10-29 22:00:00'),
       status: 'TIMED',
-      matchday: 10,
+      matchday: 0,
       homeTeamName: 'Everton FC',
       awayTeamName: 'Chelsea FC',
       result: {
@@ -133,7 +133,7 @@ router.get('/2', function (req, res) {
       },
       date: new Date(matchDate2),
       status: 'IN-PLAY',
-      matchday: 10,
+      matchday: 0,
       homeTeamName: 'Manchester City FC',
       awayTeamName: 'Manchester United FC',
       result: {
@@ -153,7 +153,7 @@ router.get('/2', function (req, res) {
       },
       date: new Date(matchDate2),
       status: 'IN-PLAY',
-      matchday: 10,
+      matchday: 0,
       homeTeamName: 'Arsenal FC',
       awayTeamName: 'Liverpool FC',
       result: {
@@ -173,7 +173,7 @@ router.get('/2', function (req, res) {
       },
       date: new Date(matchDate2),
       status: 'IN-PLAY',
-      matchday: 10,
+      matchday: 0,
       homeTeamName: 'Leicester City FC',
       awayTeamName: 'Sunderland AFC',
       result: {
@@ -193,7 +193,7 @@ router.get('/2', function (req, res) {
       },
       date: new Date('2016-10-29 22:00:00'),
       status: 'TIMED',
-      matchday: 10,
+      matchday: 0,
       homeTeamName: 'Watford FC',
       awayTeamName: 'Hull City FC',
       result: {
@@ -213,7 +213,7 @@ router.get('/2', function (req, res) {
       },
       date: new Date('2016-10-29 22:00:00'),
       status: 'TIMED',
-      matchday: 10,
+      matchday: 0,
       homeTeamName: 'Everton FC',
       awayTeamName: 'Chelsea FC',
       result: {
@@ -243,7 +243,7 @@ router.get('/3', function (req, res) {
       },
       date: new Date(matchDate2),
       status: 'IN-PLAY',
-      matchday: 10,
+      matchday: 0,
       homeTeamName: 'Manchester City FC',
       awayTeamName: 'Manchester United FC',
       result: {
@@ -263,7 +263,7 @@ router.get('/3', function (req, res) {
       },
       date: new Date(matchDate2),
       status: 'IN-PLAY',
-      matchday: 10,
+      matchday: 0,
       homeTeamName: 'Arsenal FC',
       awayTeamName: 'Liverpool FC',
       result: {
@@ -283,7 +283,7 @@ router.get('/3', function (req, res) {
       },
       date: new Date(matchDate2),
       status: 'IN-PLAY',
-      matchday: 10,
+      matchday: 0,
       homeTeamName: 'Leicester City FC',
       awayTeamName: 'Sunderland AFC',
       result: {
@@ -303,7 +303,7 @@ router.get('/3', function (req, res) {
       },
       date: new Date('2016-10-29 22:00:00'),
       status: 'TIMED',
-      matchday: 10,
+      matchday: 0,
       homeTeamName: 'Watford FC',
       awayTeamName: 'Hull City FC',
       result: {
@@ -323,7 +323,7 @@ router.get('/3', function (req, res) {
       },
       date: new Date('2016-10-29 22:00:00'),
       status: 'TIMED',
-      matchday: 10,
+      matchday: 0,
       homeTeamName: 'Everton FC',
       awayTeamName: 'Chelsea FC',
       result: {
@@ -353,7 +353,7 @@ router.get('/4', function (req, res) {
       },
       date: new Date(matchDate2),
       status: 'IN-PLAY',
-      matchday: 10,
+      matchday: 0,
       homeTeamName: 'Manchester City FC',
       awayTeamName: 'Manchester United FC',
       result: {
@@ -373,7 +373,7 @@ router.get('/4', function (req, res) {
       },
       date: new Date(matchDate2),
       status: 'IN-PLAY',
-      matchday: 10,
+      matchday: 0,
       homeTeamName: 'Arsenal FC',
       awayTeamName: 'Liverpool FC',
       result: {
@@ -393,7 +393,7 @@ router.get('/4', function (req, res) {
       },
       date: new Date(matchDate2),
       status: 'IN-PLAY',
-      matchday: 10,
+      matchday: 0,
       homeTeamName: 'Leicester City FC',
       awayTeamName: 'Sunderland AFC',
       result: {
@@ -413,7 +413,7 @@ router.get('/4', function (req, res) {
       },
       date: new Date('2016-10-29 22:00:00'),
       status: 'TIMED',
-      matchday: 10,
+      matchday: 0,
       homeTeamName: 'Watford FC',
       awayTeamName: 'Hull City FC',
       result: {
@@ -433,7 +433,7 @@ router.get('/4', function (req, res) {
       },
       date: new Date('2016-10-29 22:00:00'),
       status: 'TIMED',
-      matchday: 10,
+      matchday: 0,
       homeTeamName: 'Everton FC',
       awayTeamName: 'Chelsea FC',
       result: {
@@ -463,7 +463,7 @@ router.get('/5', function (req, res) {
       },
       date: new Date(matchDate2),
       status: 'FINISHED',
-      matchday: 10,
+      matchday: 0,
       homeTeamName: 'Manchester City FC',
       awayTeamName: 'Manchester United FC',
       result: {
@@ -483,7 +483,7 @@ router.get('/5', function (req, res) {
       },
       date: new Date(matchDate2),
       status: 'FINISHED',
-      matchday: 10,
+      matchday: 0,
       homeTeamName: 'Arsenal FC',
       awayTeamName: 'Liverpool FC',
       result: {
@@ -503,7 +503,7 @@ router.get('/5', function (req, res) {
       },
       date: new Date(matchDate2),
       status: 'FINISHED',
-      matchday: 10,
+      matchday: 0,
       homeTeamName: 'Leicester City FC',
       awayTeamName: 'Sunderland AFC',
       result: {
@@ -523,7 +523,7 @@ router.get('/5', function (req, res) {
       },
       date: new Date('2016-10-29 22:00:00'),
       status: 'TIMED',
-      matchday: 10,
+      matchday: 0,
       homeTeamName: 'Watford FC',
       awayTeamName: 'Hull City FC',
       result: {
@@ -543,7 +543,7 @@ router.get('/5', function (req, res) {
       },
       date: new Date('2016-10-29 22:00:00'),
       status: 'TIMED',
-      matchday: 10,
+      matchday: 0,
       homeTeamName: 'Everton FC',
       awayTeamName: 'Chelsea FC',
       result: {
@@ -573,7 +573,7 @@ router.get('/6', function (req, res) {
       },
       date: new Date(matchDate2),
       status: 'FINISHED',
-      matchday: 10,
+      matchday: 0,
       homeTeamName: 'Manchester City FC',
       awayTeamName: 'Manchester United FC',
       result: {
@@ -593,7 +593,7 @@ router.get('/6', function (req, res) {
       },
       date: new Date(matchDate2),
       status: 'FINISHED',
-      matchday: 10,
+      matchday: 0,
       homeTeamName: 'Arsenal FC',
       awayTeamName: 'Liverpool FC',
       result: {
@@ -613,7 +613,7 @@ router.get('/6', function (req, res) {
       },
       date: new Date(matchDate2),
       status: 'FINISHED',
-      matchday: 10,
+      matchday: 0,
       homeTeamName: 'Leicester City FC',
       awayTeamName: 'Sunderland AFC',
       result: {
@@ -633,7 +633,7 @@ router.get('/6', function (req, res) {
       },
       date: new Date('2016-10-29 22:00:00'),
       status: 'TIMED',
-      matchday: 10,
+      matchday: 0,
       homeTeamName: 'Watford FC',
       awayTeamName: 'Hull City FC',
       result: {
@@ -653,7 +653,7 @@ router.get('/6', function (req, res) {
       },
       date: new Date('2016-10-29 22:00:00'),
       status: 'TIMED',
-      matchday: 10,
+      matchday: 0,
       homeTeamName: 'Everton FC',
       awayTeamName: 'Chelsea FC',
       result: {
@@ -683,7 +683,7 @@ router.get('/7', function (req, res) {
       },
       date: new Date(matchDate3),
       status: 'FINISHED',
-      matchday: 10,
+      matchday: 0,
       homeTeamName: 'Manchester City FC',
       awayTeamName: 'Manchester United FC',
       result: {
@@ -703,7 +703,7 @@ router.get('/7', function (req, res) {
       },
       date: new Date(matchDate3),
       status: 'FINISHED',
-      matchday: 10,
+      matchday: 0,
       homeTeamName: 'Arsenal FC',
       awayTeamName: 'Liverpool FC',
       result: {
@@ -723,7 +723,7 @@ router.get('/7', function (req, res) {
       },
       date: new Date(matchDate2),
       status: 'FINISHED',
-      matchday: 10,
+      matchday: 0,
       homeTeamName: 'Leicester City FC',
       awayTeamName: 'Sunderland AFC',
       result: {
@@ -743,7 +743,7 @@ router.get('/7', function (req, res) {
       },
       date: new Date('2016-10-29 22:00:00'),
       status: 'TIMED',
-      matchday: 10,
+      matchday: 0,
       homeTeamName: 'Watford FC',
       awayTeamName: 'Hull City FC',
       result: {
@@ -763,7 +763,7 @@ router.get('/7', function (req, res) {
       },
       date: new Date('2016-10-29 22:00:00'),
       status: 'TIMED',
-      matchday: 10,
+      matchday: 0,
       homeTeamName: 'Everton FC',
       awayTeamName: 'Chelsea FC',
       result: {
@@ -910,10 +910,7 @@ router.post('/demo', function (req, res) {
 })
 
 router.delete('/remove', function (req, res) {
-  Match.remove({}, function (err) {
-    if (err) throw new Error(err)
-  })
-  Vote.remove({}, function (err) {
+  Match.remove({'matchday': 0}, function (err) {
     if (err) throw new Error(err)
   })
   res.json({'status': 'ok'})
