@@ -45,6 +45,7 @@ router.post('/newVote', function (req, res) {
       matchNo: req.body.matchInfo.matchNo,
       vote: req.body.vote,
       amount: req.body.token,
+      return: null,
       result: null
     })
     newVote.save(function (err) {
@@ -70,13 +71,14 @@ router.post('/timed', function (req, res) {
     Match.findOne({'matchNo': matchnumber}, function (err, timedMatch) {
       if (err) throw new Error(err)
       if (timedMatch) {
-        Match.findOneAndUpdate({'matchNo': matchnumber, 'date': {$lt: new Date(new Date().setHours(new Date().getHours() + 3)), $gt: new Date(new Date().setHours(new Date().getHours() - 3))}}, {
+        Match.findOneAndUpdate({'matchNo': matchnumber}, {
+          date: req.body.fixtures[i].date,
           status: req.body.fixtures[i].status,
           result: {
             goalsHomeTeam: req.body.fixtures[i].result.goalsHomeTeam,
             goalsAwayTeam: req.body.fixtures[i].result.goalsAwayTeam
           }
-        }, {new: true}, function (err, data) {
+        }, function (err, data) {
           if (err) throw new Error(err)
           if (data) {
             if (data.status === 'FINISHED') {
@@ -109,11 +111,11 @@ router.post('/timed', function (req, res) {
                       $inc: {
                         'local.tokens': userToken,
                         'local.score': userScore
-                      },
-                      'local.return': userToken
+                      }
                     }, function (err) {
                       if (err) throw new Error(err)
                       Vote.findOneAndUpdate({'userid': userId, 'matchNo': data.matchNo}, {
+                        'return': userToken,
                         'result': matchResult
                       }, function (err, answer) {
                         if (err) throw new Error(err)
@@ -163,10 +165,11 @@ router.post('/finished', function (req, res) {
   // closures!
   function updateResult (i) {
     var matchnumber = (regex.exec(req.body.fixtures[i]._links.self.href))[1]
-    Match.findOne({'matchNo': matchnumber, 'status': {$ne: 'FINISHED'}}, function (err, finishedMatch) {
+    Match.findOne({'matchNo': matchnumber}, function (err, timedMatch) {
       if (err) throw new Error(err)
-      if (finishedMatch) {
+      if (timedMatch) {
         Match.findOneAndUpdate({'matchNo': matchnumber}, {
+          date: req.body.fixtures[i].date,
           status: req.body.fixtures[i].status,
           result: {
             goalsHomeTeam: req.body.fixtures[i].result.goalsHomeTeam,
@@ -209,6 +212,7 @@ router.post('/finished', function (req, res) {
                     }, function (err) {
                       if (err) throw new Error(err)
                       Vote.findOneAndUpdate({'userid': userId, 'matchNo': data.matchNo}, {
+                        'return': userToken,
                         'result': matchResult
                       }, function (err, answer) {
                         if (err) throw new Error(err)
@@ -222,9 +226,31 @@ router.post('/finished', function (req, res) {
           }
         })
       }
+      if (!timedMatch) {
+        var newMatch = new Match({
+          matchNo: (regex.exec(req.body.fixtures[i]._links.self.href))[1],
+          date: req.body.fixtures[i].date,
+          status: req.body.fixtures[i].status,
+          matchday: req.body.fixtures[i].matchday,
+          homeTeam: req.body.fixtures[i].homeTeamName,
+          awayTeam: req.body.fixtures[i].awayTeamName,
+          result: {
+            goalsHomeTeam: req.body.fixtures[i].result.goalsHomeTeam,
+            goalsAwayTeam: req.body.fixtures[i].result.goalsAwayTeam
+          },
+          odds: {
+            homeWin: req.body.fixtures[i].odds.homeWin,
+            draw: req.body.fixtures[i].odds.draw,
+            awayWin: req.body.fixtures[i].odds.awayWin
+          }
+        })
+        newMatch.save(function (err) {
+          if (err) throw new Error(err)
+        })
+      }
     })
   }
-  res.json({status: 'ok'})
+  res.json({'updated': 'ok'})
 })
 
 router.post('/teamdata', function (req, res) {

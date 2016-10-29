@@ -7,9 +7,9 @@ var Vote = require('../models/vote')
 var Team = require('../models/team')
 
 // time now is 27 oct 13 49 00
-var matchDate = '2016-10-29 23:59:00' // + 3.1hr
-var matchDate2 = '2016-10-28 20:53:00' // current time
-var matchDate3 = '2016-10-28 17:53:00' // - 3 min
+var matchDate = '2016-10-29 18:26:00' // + 3.1hr
+var matchDate2 = '2016-10-29 10:26:00' // current time
+var matchDate3 = '2016-10-28 12:26:00' // - 3 min
 
 // add games to mongoDB
 router.get('/1', function (req, res) {
@@ -868,6 +868,7 @@ router.post('/demo', function (req, res) {
                     }, function (err) {
                       if (err) throw new Error(err)
                       Vote.findOneAndUpdate({'userid': userId, 'matchNo': data.matchNo}, {
+                        'return': userToken,
                         'result': matchResult
                       }, function (err, answer) {
                         if (err) throw new Error(err)

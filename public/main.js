@@ -157,6 +157,7 @@ $(document).ready(function () {
     $('#demoStep').text('demo ' + demoStep)
     function demo (no) {
       $.ajax({
+        // url: 'http://localhost:4000/api/matches/' + no,
         url: 'https://e-legal.herokuapp.com/api/matches/' + no,
         type: 'GET',
         dataType: 'json'
@@ -196,35 +197,35 @@ $(document).ready(function () {
 //     })
 //   })
 
-// function realTime () {
-//   // calling timed games for next 7 days
-//   $.ajax({
-//     headers: { 'X-Auth-Token': '27abe9753e3f41729df870412f174c31' },
-//     url: '//api.football-data.org/v1/competitions/426/fixtures?timeFrame=n7',
-//     type: 'GET',
-//     dataType: 'json'
-//   }).done(function (timed) {
-//     $.post({
-//       type: 'POST',
-//       url: '/matches/timed',
-//       data: timed
-//     })
-//   })
-//
-//   // calling played games one day before
-//   $.ajax({
-//     headers: { 'X-Auth-Token': '27abe9753e3f41729df870412f174c31' },
-//     url: '//api.football-data.org/v1/competitions/426/fixtures?timeFrame=p1',
-//     type: 'GET',
-//     dataType: 'json'
-//   }).done(function (finished) {
-//     $.post({
-//       type: 'POST',
-//       url: '/matches/finished',
-//       data: finished
-//     })
-//   })
-//
-//   setTimeout(realTime, 5000)
-// }
-// realTime()
+function realTime () {
+  // calling timed games for next 7 days
+  $.ajax({
+    headers: { 'X-Auth-Token': '27abe9753e3f41729df870412f174c31' },
+    url: '//api.football-data.org/v1/competitions/426/fixtures?timeFrame=n7',
+    type: 'GET',
+    dataType: 'json'
+  }).done(function (timed) {
+    $.post({
+      type: 'POST',
+      url: '/matches/timed',
+      data: timed
+    })
+  })
+
+  // calling played games one day before
+  $.ajax({
+    headers: { 'X-Auth-Token': '27abe9753e3f41729df870412f174c31' },
+    url: '//api.football-data.org/v1/competitions/426/fixtures?timeFrame=p1',
+    type: 'GET',
+    dataType: 'json'
+  }).done(function (finished) {
+    $.post({
+      type: 'POST',
+      url: '/matches/finished',
+      data: finished
+    })
+  })
+
+  setTimeout(realTime, 5000)
+}
+realTime()
