@@ -226,6 +226,6 @@ function realTime () {
     })
   })
 
-  setTimeout(realTime, 5000)
+  setTimeout(realTime, 10000)
 }
 realTime()
