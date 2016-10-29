@@ -7,9 +7,10 @@ var Vote = require('../models/vote')
 var Team = require('../models/team')
 
 // time now is 27 oct 13 49 00
-var matchDate = '2016-10-30 18:26:00' // + 3.1hr
-var matchDate2 = '2016-10-30 10:26:00' // current time
-var matchDate3 = '2016-10-30 12:26:00' // - 3 min
+var matchDate = '2016-10-30 13:00:00' // + 3.1hr
+var matchDate2 = '2016-10-30 10:00:00' // current time
+var matchDate3 = '2016-10-30 07:00:00' // - 3 min
+var matchDate4 = '2016-10-31 20:00:00'
 
 // add games to mongoDB
 router.get('/1', function (req, res) {
@@ -81,7 +82,7 @@ router.get('/1', function (req, res) {
           href: 'https://api.football-data.org/v1/fixtures/444'
         }
       },
-      date: new Date('2016-10-29 22:00:00'),
+      date: new Date(matchDate4),
       status: 'TIMED',
       matchday: 0,
       homeTeamName: 'Watford FC',
@@ -101,7 +102,7 @@ router.get('/1', function (req, res) {
           href: 'https://api.football-data.org/v1/fixtures/555'
         }
       },
-      date: new Date('2016-10-29 22:00:00'),
+      date: new Date(matchDate4),
       status: 'TIMED',
       matchday: 0,
       homeTeamName: 'Everton FC',
@@ -191,7 +192,7 @@ router.get('/2', function (req, res) {
           href: 'https://api.football-data.org/v1/fixtures/444'
         }
       },
-      date: new Date('2016-10-29 22:00:00'),
+      date: new Date(matchDate4),
       status: 'TIMED',
       matchday: 0,
       homeTeamName: 'Watford FC',
@@ -211,7 +212,7 @@ router.get('/2', function (req, res) {
           href: 'https://api.football-data.org/v1/fixtures/555'
         }
       },
-      date: new Date('2016-10-29 22:00:00'),
+      date: new Date(matchDate4),
       status: 'TIMED',
       matchday: 0,
       homeTeamName: 'Everton FC',
@@ -301,7 +302,7 @@ router.get('/3', function (req, res) {
           href: 'https://api.football-data.org/v1/fixtures/444'
         }
       },
-      date: new Date('2016-10-29 22:00:00'),
+      date: new Date(matchDate4),
       status: 'TIMED',
       matchday: 0,
       homeTeamName: 'Watford FC',
@@ -321,7 +322,7 @@ router.get('/3', function (req, res) {
           href: 'https://api.football-data.org/v1/fixtures/555'
         }
       },
-      date: new Date('2016-10-29 22:00:00'),
+      date: new Date(matchDate4),
       status: 'TIMED',
       matchday: 0,
       homeTeamName: 'Everton FC',
@@ -411,7 +412,7 @@ router.get('/4', function (req, res) {
           href: 'https://api.football-data.org/v1/fixtures/444'
         }
       },
-      date: new Date('2016-10-29 22:00:00'),
+      date: new Date(matchDate4),
       status: 'TIMED',
       matchday: 0,
       homeTeamName: 'Watford FC',
@@ -431,7 +432,7 @@ router.get('/4', function (req, res) {
           href: 'https://api.football-data.org/v1/fixtures/555'
         }
       },
-      date: new Date('2016-10-29 22:00:00'),
+      date: new Date(matchDate4),
       status: 'TIMED',
       matchday: 0,
       homeTeamName: 'Everton FC',
@@ -521,7 +522,7 @@ router.get('/5', function (req, res) {
           href: 'https://api.football-data.org/v1/fixtures/444'
         }
       },
-      date: new Date('2016-10-29 22:00:00'),
+      date: new Date(matchDate4),
       status: 'TIMED',
       matchday: 0,
       homeTeamName: 'Watford FC',
@@ -541,7 +542,7 @@ router.get('/5', function (req, res) {
           href: 'https://api.football-data.org/v1/fixtures/555'
         }
       },
-      date: new Date('2016-10-29 22:00:00'),
+      date: new Date(matchDate4),
       status: 'TIMED',
       matchday: 0,
       homeTeamName: 'Everton FC',
@@ -631,7 +632,7 @@ router.get('/6', function (req, res) {
           href: 'https://api.football-data.org/v1/fixtures/444'
         }
       },
-      date: new Date('2016-10-29 22:00:00'),
+      date: new Date(matchDate4),
       status: 'TIMED',
       matchday: 0,
       homeTeamName: 'Watford FC',
@@ -651,7 +652,7 @@ router.get('/6', function (req, res) {
           href: 'https://api.football-data.org/v1/fixtures/555'
         }
       },
-      date: new Date('2016-10-29 22:00:00'),
+      date: new Date(matchDate4),
       status: 'TIMED',
       matchday: 0,
       homeTeamName: 'Everton FC',
@@ -741,7 +742,7 @@ router.get('/7', function (req, res) {
           href: 'https://api.football-data.org/v1/fixtures/444'
         }
       },
-      date: new Date('2016-10-29 22:00:00'),
+      date: new Date(matchDate4),
       status: 'TIMED',
       matchday: 0,
       homeTeamName: 'Watford FC',
@@ -761,7 +762,7 @@ router.get('/7', function (req, res) {
           href: 'https://api.football-data.org/v1/fixtures/555'
         }
       },
-      date: new Date('2016-10-29 22:00:00'),
+      date: new Date(matchDate4),
       status: 'TIMED',
       matchday: 0,
       homeTeamName: 'Everton FC',
