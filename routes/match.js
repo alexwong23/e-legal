@@ -281,12 +281,16 @@ router.post('/finished', function (req, res) {
 router.post('/teamdata', function (req, res) {
   var noOfTeams = req.body.count
   for (var i = 0; i < noOfTeams; i++) {
+    oneTeam(i)
+  }
+  function oneTeam (i) {
     Team.findOne({'name': req.body.teams[i].name}, function (err, existingTeam) {
       if (err) throw new Error(err)
       if (!existingTeam) {
         var convertNumber = req.body.teams[i].squadMarketValue.replace(/,| |€/g, '')
         var newTeam = new Team({
           name: req.body.teams[i].name,
+          code: req.body.teams[i].code,
           shortName: req.body.teams[i].shortName,
           squadMarketValue_Euro: convertNumber,
           crestUrl: req.body.teams[i].crestUrl
