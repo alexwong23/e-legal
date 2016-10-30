@@ -16,6 +16,17 @@ router.get('/', userCheck, function (req, res) {
   res.redirect('/users/' + req.user.id)
 })
 
+router.get('/rankings', userCheck, function (req, res) {
+  User.find().sort({'local.tokens': -1}).exec(function (err, allUsers) {
+    if (err) throw new Error(err)
+    var userIndex = allUsers.map(function (e) { return e.local.username }).indexOf(req.user.local.username) + 1
+    res.render('user/rank', {
+      allUsers: allUsers,
+      userIndex: userIndex
+    })
+  })
+})
+
 router.get('/:id', userCheck, function (req, res) {
   Vote.find({'userid': req.user.id})
   .populate('userid')

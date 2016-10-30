@@ -36,6 +36,27 @@ router.get('/', function (req, res) {
   })
 })
 
+router.get('/finished', function (req, res) {
+  Match.find({'status': 'FINISHED'}).sort({'date': -1}).exec(function (err, finishedMatches) {
+    if (err) throw new Error(err)
+    Team.find({}, function (err, teamDetails) {
+      if (err) throw new Error(err)
+      var teamObj = {
+        crests: {},
+        shortName: {}
+      }
+      for (var j = 0; j < teamDetails.length; j++) {
+        teamObj.crests[teamDetails[j].name] = teamDetails[j].crestUrl
+        teamObj.shortName[teamDetails[j].name] = teamDetails[j].shortName
+      }
+      res.render('match/finished', {
+        finishedMatches: finishedMatches,
+        teamObj: teamObj
+      })
+    })
+  })
+})
+
 router.post('/newVote', function (req, res) {
   Match.findOne({'matchNo': req.body.matchInfo.matchNo}, function (err, matchInfo) {
     if (err) throw new Error(err)
