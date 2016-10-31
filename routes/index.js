@@ -4,6 +4,12 @@ var passport = require('passport')
 var User = require('../models/user')
 var cron = require('node-cron')
 
+var indexController = require('../controller/indexController')
+
+router.get('/', indexController.getHome)
+router.get('/logout', indexController.getLogout)
+router.get('/about', indexController.getAbout)
+
 // update every monday 0000 hours
 cron.schedule('0 0 0 * * 1', function () {
   User.update({}, {
@@ -30,14 +36,8 @@ function signupCheck (req, res, next) {
   }
 }
 
-router.get('/', function (req, res) {
-  res.render('index')
-})
-
 router.route('/login')
-.get(loginCheck, function (req, res) {
-  res.render('login', { message: req.flash('loginMessage') })
-})
+.get(loginCheck, indexController.getLogin)
 .post(passport.authenticate('local-login', {
   successRedirect: '/',
   failureRedirect: '/login',
@@ -45,22 +45,11 @@ router.route('/login')
 }))
 
 router.route('/signup')
-  .get(signupCheck, function (req, res) {
-    res.render('signup', { message: req.flash('signupMessage') })
-  })
+  .get(signupCheck, indexController.getSignup)
   .post(passport.authenticate('local-signup', {
     successRedirect: '/users',
     failureRedirect: '/signup',
     failureFlash: true
   }))
-
-router.get('/logout', function (req, res) {
-  req.logout()
-  res.redirect('/')
-})
-
-router.get('/about', function (req, res) {
-  res.render('about')
-})
 
 module.exports = router
