@@ -6,7 +6,7 @@ var Vote = require('../models/vote')
 var Team = require('../models/team')
 
 router.get('/', function (req, res) {
-  Match.find({'status': 'TIMED', 'date': {$gt: new Date(new Date().setHours(new Date().getHours() + 3))}}, function (err, timedArr) {
+  Match.find({'status': {$or: ['TIMED', 'SCHEDULED']}, 'date': {$gt: new Date(new Date().setHours(new Date().getHours() + 3))}}, function (err, timedArr) {
     if (err) throw new Error(err)
     Vote.find({'userid': req.user}, function (err, votes) {
       if (err) throw new Error(err)

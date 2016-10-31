@@ -5,10 +5,10 @@ var Match = require('../models/match')
 var Vote = require('../models/vote')
 var Team = require('../models/team')
 
-// time now is 27 oct 13 49 00
-var matchDate = '2016-10-31 14:36:00' // + 3.1hr
-var matchDate2 = '2016-10-31 11:36:00' // current time
-var matchDate3 = '2016-10-31 08:36:00' // - 3 min
+// time now is 31 oct 18 40 00
+var matchDate = '2016-10-31 21:45:00' // + 3.1hr
+var matchDate2 = '2016-10-31 18:40:00' // current time
+var matchDate3 = '2016-10-31 15:40:00' // - 3hr
 var matchDate4 = '2016-11-1 20:00:00' // + one day
 
 // add games to mongoDB
