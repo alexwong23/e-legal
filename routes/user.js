@@ -72,7 +72,10 @@ router.put('/:id/edit', function (req, res) {
 router.delete('/:id', userCheck, function (req, res) {
   User.findOneAndRemove({'_id': req.user.id}, function (err, removeUser) {
     if (err) throw new Error(err)
-    res.redirect('../')
+    Vote.remove({'userid': req.user.id}, function (err, removeUserVotes) {
+      if (err) throw new Error(err)
+      res.redirect('../')
+    })
   })
 })
 
