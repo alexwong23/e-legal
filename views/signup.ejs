@@ -1,9 +1,12 @@
 <h1>SIGN UP</h1>
 
 <% if(message.length > 0) { %>
-  <div class="alert alert-danger">
-    <%= message %>
-  </div>
+  <h4>Error found</h4>
+  <ul>
+  <% for (var error in message[0]) { %>
+    <li><%= message[0][error].message %></li>
+  <% } %>
+  </ul>
 <% } %>
 
 <form method="post" action="/signup" class="local-signup">

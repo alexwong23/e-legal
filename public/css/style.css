@@ -58,6 +58,10 @@ body{
   position: relative;
   top: -20px;
 }
+.userRankLink {
+  color: white;
+  text-decoration: underline;
+}
 .img-polaroid {
   max-width: 100px;
   min-width: 100px;

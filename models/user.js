@@ -3,13 +3,22 @@ var bcrypt = require('bcrypt')
 
 var userSchema = new mongoose.Schema({
   local: {
-    username: {type: String, required: true, unique: true},
+    username: {
+      type: String,
+      required: [true, 'Username is required'],
+      unique: true
+    },
     password: {
       type: String,
-      required: true
+      required: true,
+      minlength: [6, 'Password at least 6 characters']
     },
     handphone: Number,
-    email: {type: String, required: true},
+    email: {
+      type: String,
+      required: [true, 'Email is required'],
+      match: [/.+\@.+\..+/, 'Invalid email']
+    },
     favTeam: String,
     tokens: Number,
     score: Number
