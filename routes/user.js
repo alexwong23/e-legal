@@ -76,4 +76,21 @@ router.delete('/:id', userCheck, function (req, res) {
   })
 })
 
+router.get('/:id/:otherid', userCheck, function (req, res) {
+  User.find({'_id': req.params.otherid}, function (err, otherUser) {
+    if (err) throw new Error(err)
+    Vote.find({'userid': req.params.otherid})
+    .populate('userid')
+    .populate('matchid')
+    .exec(function (err, voteArr) {
+      if (err) throw new Error(err)
+      res.render('user/otherUser', {
+        message: req.flash('userMessage'),
+        otherUser: otherUser,
+        voteArr: voteArr
+      })
+    })
+  })
+})
+
 module.exports = router

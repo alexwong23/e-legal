@@ -1,7 +1,6 @@
 var express = require('express')
 var router = express.Router()
 var User = require('../models/user')
-// var MatchApi = require('../models/matchapi')
 var Match = require('../models/match')
 var Vote = require('../models/vote')
 var Team = require('../models/team')

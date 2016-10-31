@@ -1,4 +1,4 @@
-<h1>My Profile</h1>
+<h1><%=otherUser[0].local.username%>'s Profile</h1>
 
 <% if(message.length > 0) { %>
   <div class="alert alert-danger">
@@ -15,16 +15,16 @@
                <img src="http://bikaynak.com/sites/default/files/premier-league_0.jpg" class="img-polaroid"/>
             </div>
             <div class="col-md-2 removeSpaces">
-               <h2><%= user.local.username %></h2>
+               <h2><%= otherUser[0].local.username %></h2>
               <ul class="unstyled">
-                <li><i class="icon-phone"></i> <%= user.local.handphone %></li>
-                <li><i class="icon-envelope"></i> <%= user.local.email %></li>
-                <li><i class="icon-globe"></i> <%= user.local.favTeam %></li>
+                <li><i class="icon-phone"></i> <%= otherUser[0].local.handphone %></li>
+                <li><i class="icon-envelope"></i> <%= otherUser[0].local.email %></li>
+                <li><i class="icon-globe"></i> <%= otherUser[0].local.favTeam %></li>
               </ul>
             </div>
             <div class="col-md-3 removeSpaces">
               <div class="row">
-                <h2><%=user.local.tokens%></h2>
+                <h2><%=otherUser[0].local.tokens%></h2>
               </div>
               <div class="row">
                 <h4>Tokens</h4>
@@ -32,7 +32,7 @@
             </div>
             <div class="col-md-3 removeSpaces">
               <div class="row">
-                <h2><%=user.local.score%></h2>
+                <h2><%=otherUser[0].local.score%></h2>
               </div>
               <div class="row">
                 <h4>Score</h4>
@@ -47,11 +47,6 @@
   </div>
   </div>
   <div class="container-fluid removeSpaces">
-    <a href="/users/<%=user.id%>/edit" class="btn btn-info">Edit Account Details</a>
-    <form method="POST" action="/users/<%=user.id%>" enctype="application/x-www-form-urlencoded">
-      <input type="hidden" name="_method" value="DELETE">
-      <button type="submit" class="btn btn-primary btn-md btn-danger">Remove Account</button>
-    </form>
     <h4>Vote History</h4>
     <div class="row">
       <div class="table-responsive">
