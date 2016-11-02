@@ -25,6 +25,9 @@ var userSchema = new mongoose.Schema({
   }
 })
 
+// passport, before saving a new user, this function will return
+// generate salt 5 times
+// bcrypt passport with generated salt
 userSchema.pre('save', function (next) {
   var user = this
   bcrypt.genSalt(5, function (err, salt) {
@@ -37,6 +40,8 @@ userSchema.pre('save', function (next) {
   })
 })
 
+// passport method for authentication
+// bcrypt input password and see if matches with existing hash password in db
 userSchema.methods.authenticate = function (password, callback) {
   bcrypt.compare(password, this.local.password, function (err, isMatch) {
     callback(err, isMatch)
