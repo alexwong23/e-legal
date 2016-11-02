@@ -1,4 +1,6 @@
 
+// export functions to index route
+
 module.exports = {
   getHome: function (req, res) {
     res.render('index')

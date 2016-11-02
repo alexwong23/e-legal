@@ -2,6 +2,7 @@
 var User = require('../models/user')
 var Vote = require('../models/vote')
 
+// export functions to user route
 module.exports = {
   getProfile: function (req, res) {
     res.redirect('/users/' + req.user.id)
