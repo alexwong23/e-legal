@@ -3,16 +3,22 @@ var LocalStrategy = require('passport-local').Strategy
 var User = require('../models/user')
 
 module.exports = function (passport) {
+  // add user id to session to simulate user has login
   passport.serializeUser(function (user, done) {
     done(null, user.id)
   })
 
+  // remove user id from session to simulate no user login
   passport.deserializeUser(function (id, done) {
     User.findById(id, function (err, user) {
       done(err, user)
     })
   })
 
+  // local-login strategy with username, password
+  // if user exists && password correct, successredirect to user page
+  // if user exists but password wrong, failure redirect to login page
+  // if no user found, failure redirect to login page
   passport.use('local-login', new LocalStrategy({
     usernameField: 'user[local][username]',
     passwordField: 'user[local][password]',
@@ -36,6 +42,9 @@ module.exports = function (passport) {
     })
   }))
 
+  // local-signup strategy with username, password
+  // if username does not exist, create new user, successredirect to user page
+  // if username exists, failureredirect to signup page
   passport.use('local-signup', new LocalStrategy({
     usernameField: 'user[local][username]',
     passwordField: 'user[local][password]',
@@ -59,7 +68,6 @@ module.exports = function (passport) {
         })
         newUser.save(function (err, newUser) {
           if (err) {
-            console.log(err.errors)
             return next(null, false, req.flash('signupMessage', err.errors))
           }
           return next(null, newUser)

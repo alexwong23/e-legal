@@ -6,10 +6,6 @@ var cron = require('node-cron')
 
 var indexController = require('../controller/indexController')
 
-router.get('/', indexController.getHome)
-router.get('/logout', indexController.getLogout)
-router.get('/about', indexController.getAbout)
-
 // update every monday 0000 hours
 cron.schedule('0 0 0 * * 1', function () {
   User.update({}, {
@@ -35,6 +31,10 @@ function signupCheck (req, res, next) {
     return next()
   }
 }
+
+router.get('/', indexController.getHome)
+router.get('/logout', indexController.getLogout)
+router.get('/about', indexController.getAbout)
 
 router.route('/login')
 .get(loginCheck, indexController.getLogin)

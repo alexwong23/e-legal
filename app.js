@@ -1,3 +1,4 @@
+// require modules & set to variables
 var express = require('express')
 var bodyParser = require('body-parser')
 var methodOverride = require('method-override')
@@ -10,14 +11,21 @@ var passport = require('passport')
 var MongoStore = require('connect-mongo')(session)
 // var morgan = require('morgan')
 
+// set app to run express
+// server variable for web socket at btm of page
 var app = express()
 var server = require('http').Server(app)
 
+// connect mongoose to which environment
 mongoose.Promise = global.Promise
 console.log('the environment is on ' + process.env.NODE_ENV)
 dotenv.load({path: '.env.' + process.env.NODE_ENV})
 mongoose.connect(process.env.MONGO_URI)
 
+// comment out morgan to prevent clogging of terminal
+// set view engine to ejs and use layout
+// set session, initialize passport, session, flash
+// store data in mongodb, use public folder
 // app.use(morgan('dev'))
 app.set('view engine', 'ejs')
 app.use(layout)
@@ -35,16 +43,19 @@ app.use(passport.session())
 app.use(flash())
 app.use(express.static(__dirname + '/public'))
 
+// set routes to variables
 var index_routes = require('./routes/index')
 var user_routes = require('./routes/user')
 var match_routes = require('./routes/match')
 var match_api = require('./routes/match_api')
 
+// body parser to get req.body from web page
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({
   extended: true
 }))
 
+// for passport
 require('./config/passport')(passport)
 
 // run methodOverride for all requests
@@ -56,30 +67,39 @@ app.use(methodOverride(function (req, res) {
   }
 }))
 
+// exclusively for getting external api
 app.use(function (req, res, next) {
   res.header('Access-Control-Allow-Origin', '*')
   res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept')
   next()
 })
 
+// to call 'user' in ejs pages, depends on session user id
 app.use(function (req, res, next) {
   res.locals.user = req.user
   next()
 })
 
+// connect routes to url
 app.use('/', index_routes)
 app.use('/users', user_routes)
 app.use('/matches', match_routes)
 app.use('/api/matches', match_api)
 
+// server listen if either on heroku or localhost
 server.listen(process.env.PORT || 4000)
 console.log('Server running at http://localhost:4000/')
 
+// web sockets
 var Match = require('./models/match')
 var Team = require('./models/team')
 var io = require('socket.io')(server)
 var intervalId
 
+// on web socket connection run function below
+// function runs every second using set interval
+// function finds if there is a match +- 3 hours from current time
+// if true, take that data with all team collection data and emit to client side, ajax
 io.on('connect', function (socket) {
   clearInterval(intervalId)
   intervalId = setInterval(function () {
