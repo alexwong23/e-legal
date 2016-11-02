@@ -26,7 +26,7 @@ router.post('/newVote', matchController.postNewVote)
 // find the user, update tokens and score
 // find user vote, update token return and match result
 // why not update all votes at first, cause updating each null vote one by one
-router.post('/timed', matchController.postUpdateFromAPI)
+router.post('/timed', matchController.postUpdateMatchFromAPI)
 router.post('/finished', matchController.postUpdateMatchFromAPI)
 
 // ajax post to update team collection (heroku team data not updated) (manual)

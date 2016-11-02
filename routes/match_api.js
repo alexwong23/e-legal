@@ -24,7 +24,7 @@ router.get('/6', matchController.getAPIData5)
 router.get('/7', matchController.getAPIData6)
 
 // render API vote page
-router.get('/', matchController.postAPIVotePage)
+router.get('/', matchController.getAPIVotePage)
 
 // update database using same codes from live data update
 router.post('/demo', matchController.postUpdateMatchFromAPI)
