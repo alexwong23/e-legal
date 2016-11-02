@@ -1,7 +1,4 @@
 body{
-    background:url();
-    background-size: cover
-    padding:50px;
     color: white;
     background: linear-gradient(270deg, #41534e, #2e2f2f);
     background-size: 400% 400%;
@@ -26,15 +23,13 @@ body{
 .blackFont {
   color: black;
 }
-
+.userRankLink {
+  color: white;
+  text-decoration: underline;
+}
 .col-md-3.removeSpaces {
   text-align: center;
 }
-
-.timedContainer {
-  max-width: 100%;
-}
-
 .text-xs-right {
   text-align: right;
 }
@@ -44,23 +39,16 @@ body{
 .text-xs-left {
   text-align: left;
 }
-
 .logo, #homeLogo, #awayLogo{
   width: 150px;
   height: 150px;
 }
-
 #homeLogo, #awayLogo {
   margin: 0 50px 0 50px;
 }
-
 #awayLogo {
   position: relative;
   top: -20px;
-}
-.userRankLink {
-  color: white;
-  text-decoration: underline;
 }
 .img-polaroid {
   max-width: 100px;
@@ -75,7 +63,6 @@ body{
   height: 50px;
   font-size: 20px;
 }
-
 .modalAlert {
   padding: 6px;
   margin: 0px;
@@ -129,30 +116,8 @@ body{
     clear:both;
     padding:14px;
 }
-#login-dp .social-buttons{
-    margin:12px 0
-}
-#login-dp .social-buttons a{
-    width: 49%;
-}
 #login-dp .form-group {
     margin-bottom: 10px;
-}
-.btn-fb{
-    color: #fff;
-    background-color:#3b5998;
-}
-.btn-fb:hover{
-    color: #fff;
-    background-color:#496ebc
-}
-.btn-tw{
-    color: #fff;
-    background-color:#55acee;
-}
-.btn-tw:hover{
-    color: #fff;
-    background-color:#59b5fa;
 }
 @media(max-width:768px){
     #login-dp{
@@ -164,12 +129,6 @@ body{
         border-top:0 none;
     }
 }
-
-/*
-Fade content bs-carousel with hero headers
-Code snippet by maridlcrmn (Follow me on Twitter @maridlcrmn) for Bootsnipp.com
-Image credits: unsplash.com
-*/
 
 /********************************/
 /*       Fade Bs-carousel       */
@@ -293,10 +252,6 @@ Image credits: unsplash.com
     .hero h1 { font-size: 4em; }
 }
 
-
-
-
-
 body{
   padding-top:25px !important;
 }
@@ -356,6 +311,16 @@ body{
   background-color: #5e7872;
 }
 
+#myCarousel .nav a small {
+    display:block;
+}
+#myCarousel .nav {
+	background:#eee;
+}
+#myCarousel .nav a {
+    border-radius:0px;
+}
+
 @-webkit-keyframes AnimationName {
     0%{background-position:0% 50%}
     50%{background-position:100% 50%}
@@ -370,14 +335,4 @@ body{
     0%{background-position:0% 50%}
     50%{background-position:100% 50%}
     100%{background-position:0% 50%}
-}
-
-#myCarousel .nav a small {
-    display:block;
-}
-#myCarousel .nav {
-	background:#eee;
-}
-#myCarousel .nav a {
-    border-radius:0px;
 }

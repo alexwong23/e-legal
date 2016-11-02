@@ -1,4 +1,9 @@
 $(document).ready(function () {
+  // web socket to check if there are updates
+  // if there is change in update length, set liveChange to true
+  // purpose is to remove all updatedRows, append new updatedRows, and remove duplicate matchNo rows
+  // set liveMatch to the updated data for manipulation in realLife func
+  // set liveMatchNo to update length so won't make any changes to the existing rows
   var admin = io()
   var liveMatch = []
   var createdDOM = false
@@ -15,11 +20,17 @@ $(document).ready(function () {
   })
 
   function realLife () {
+    // if there is a change in update, remove all update rows
+    // set liveChange to false so will not remove update rows again
+    // set createdDOM to false so will pass the next if function
     if (liveChange === true) {
       $('.updateRow').remove()
       liveChange = false
       createdDOM = false
     }
+    // if there is an update && createdDOM is false, create new rows for new update
+    // set createdDOM to true so it will not create again
+    // for each match in liveMatch, remove any existing match and create update row
     if (liveMatch.length !== [] && createdDOM === false) {
       createdDOM = true
       liveMatch.update.forEach(function (match) {
@@ -78,6 +89,11 @@ $(document).ready(function () {
         scoreDiv()
       })
     }
+    // createdDOM is true, keep updating the update row details
+    // calculate the time before the match starts and place in details
+    // if match start time is smaller than current time or match status is 'IN-PLAY', change countDown to string 'live'
+    // if match status is 'FINISHED', change countDown to string 'end'
+    // else if there is no update, and createdDOM is true, createdDOM equal false so it will not continue running this update function
     if (createdDOM === true) {
       liveMatch.update.forEach(function (match) {
         var countDown
@@ -107,6 +123,10 @@ $(document).ready(function () {
     }
   }
 
+  // on click of vote button, store data from 'this' match attribute into voteData object
+  // on click of submit vote, store token and team chosen in voteData object
+  // if user not login, no team chosen, or not enough tokens, unhide and show Error in modal
+  // if submission successful, post to match route for further action
   var $voteData = {
     matchInfo: this.matchInfo,
     vote: this.vote,
@@ -143,6 +163,7 @@ $(document).ready(function () {
     }
   })
 
+  // to disable about page carousel interval
   $('#myCarousel').carousel({
     interval: false
   })
@@ -151,6 +172,7 @@ $(document).ready(function () {
     $(this).parent().addClass('active')
   })
 
+  // on api matches page, when click demostep button, plus one to button text, get json data from internal api, post data to api matches route
   var demoStep = 1
   $('#demoStep').on('click', function () {
     demo(demoStep)
@@ -172,6 +194,7 @@ $(document).ready(function () {
     }
   })
 
+  // on api matches page, on click of remove button, ajax delete to api/matches route, redirect to current location if successful
   $('#demoRemove').on('click', function () {
     var remove = true
     $.ajax({
@@ -183,7 +206,7 @@ $(document).ready(function () {
   })
 })
 
-// update previous matchdays
+// update previous matchdays using matchday url ('fixtures?matchday=9')
 // $.ajax({
 //   headers: { 'X-Auth-Token': '27abe9753e3f41729df870412f174c31' },
 //   url: '//api.football-data.org/v1/competitions/426/fixtures?matchday=9',
@@ -197,7 +220,7 @@ $(document).ready(function () {
 //   })
 // })
 
-// // calling all team details
+// // calling all team details from url epl teams
 //   $.ajax({
 //     headers: { 'X-Auth-Token': '27abe9753e3f41729df870412f174c31' },
 //     url: 'https://api.football-data.org/v1/competitions/426/teams',
@@ -211,6 +234,8 @@ $(document).ready(function () {
 //     })
 //   })
 
+// run realtime function every 10 seconds using set interval
+// calling external api for match updates
 function realTime () {
   // calling timed games for next 7 days
   $.ajax({
