@@ -24,6 +24,7 @@ module.exports = {
     .sort({'matchid.date': -1})
     .exec(function (err, voteArr) {
       if (err) throw new Error(err)
+      console.log(voteArr)
       res.render('user/index', {
         message: req.flash('userMessage'),
         voteArr: voteArr
