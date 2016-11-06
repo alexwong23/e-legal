@@ -21,6 +21,7 @@ module.exports = {
     Vote.find({'userid': req.user.id})
     .populate('userid')
     .populate('matchid')
+    .sort({'matchid.date': -1})
     .exec(function (err, voteArr) {
       if (err) throw new Error(err)
       res.render('user/index', {
