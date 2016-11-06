@@ -210,7 +210,7 @@ module.exports = {
     res.json({status: 'ok'})
   },
   getAPIVotePage: function (req, res) {
-    Match.find({'status': 'TIMED', 'date': {$gt: new Date(new Date().setHours(new Date().getHours() + 3))}}, function (err, timedArr) {
+    Match.find({$or: [{'status': 'TIMED'}, {'status': 'SCHEDULED'}], 'date': {$gt: new Date(new Date().setHours(new Date().getHours() + 3))}}).sort({'date': 1}).exec(function (err, timedArr) {
       if (err) throw new Error(err)
       Vote.find({'userid': req.user}, function (err, votes) {
         if (err) throw new Error(err)

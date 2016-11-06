@@ -236,35 +236,35 @@ $(document).ready(function () {
 
 // run realtime function every 10 seconds using set interval
 // calling external api for match updates
-// function realTime () {
-//   // calling timed games for next 7 days
-//   $.ajax({
-//     headers: { 'X-Auth-Token': '27abe9753e3f41729df870412f174c31' },
-//     url: '//api.football-data.org/v1/competitions/426/fixtures?timeFrame=n7',
-//     type: 'GET',
-//     dataType: 'json'
-//   }).done(function (timed) {
-//     $.post({
-//       type: 'POST',
-//       url: '/matches/timed',
-//       data: timed
-//     })
-//   })
-//
-//   // calling played games one day before
-//   $.ajax({
-//     headers: { 'X-Auth-Token': '27abe9753e3f41729df870412f174c31' },
-//     url: '//api.football-data.org/v1/competitions/426/fixtures?timeFrame=p1',
-//     type: 'GET',
-//     dataType: 'json'
-//   }).done(function (finished) {
-//     $.post({
-//       type: 'POST',
-//       url: '/matches/finished',
-//       data: finished
-//     })
-//   })
-//
-//   setTimeout(realTime, 10000)
-// }
-// realTime()
+function realTime () {
+  // calling timed games for next 7 days
+  $.ajax({
+    headers: { 'X-Auth-Token': '27abe9753e3f41729df870412f174c31' },
+    url: '//api.football-data.org/v1/competitions/426/fixtures?timeFrame=n7',
+    type: 'GET',
+    dataType: 'json'
+  }).done(function (timed) {
+    $.post({
+      type: 'POST',
+      url: '/matches/timed',
+      data: timed
+    })
+  })
+
+  // calling played games one day before
+  $.ajax({
+    headers: { 'X-Auth-Token': '27abe9753e3f41729df870412f174c31' },
+    url: '//api.football-data.org/v1/competitions/426/fixtures?timeFrame=p1',
+    type: 'GET',
+    dataType: 'json'
+  }).done(function (finished) {
+    $.post({
+      type: 'POST',
+      url: '/matches/finished',
+      data: finished
+    })
+  })
+
+  setTimeout(realTime, 10000)
+}
+realTime()
