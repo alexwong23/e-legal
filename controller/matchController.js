@@ -240,11 +240,13 @@ module.exports = {
     })
   },
   deleteAPIData: function (req, res) {
-    Match.remove({'matchday': 0}, function (err, matchDetails) {
+    Match.remove({'matchday': 0}, function (err) {
       if (err) throw new Error(err)
-      console.log(matchDetails)
+      Vote.remove({'matchNo': {$in: [111, 222, 333, 444, 555]}}, function (err) {
+        if (err) throw new Error(err)
+        res.json({'status': 'ok'})
+      })
     })
-    res.json({'status': 'ok'})
   },
   getAPIData1: function (req, res) {
     var matchAPI = ({
