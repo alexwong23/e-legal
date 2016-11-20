@@ -1,6 +1,17 @@
 var express = require('express')
 var router = express.Router()
 var passport = require('passport')
+var User = require('../models/user')
+var cron = require('node-cron')
+
+// update every monday 0000 hours
+cron.schedule('0 0 0 * * 1', function () {
+  User.update({}, {
+    $inc: {'local.tokens': 10}
+  }, {multi: true}, function (err) {
+    if (err) throw new Error(err)
+  })
+})
 
 function loginCheck (req, res, next) {
   if (req.isAuthenticated(req, res, next)) {

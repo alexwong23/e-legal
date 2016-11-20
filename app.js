@@ -9,10 +9,6 @@ var session = require('express-session')
 var passport = require('passport')
 var MongoStore = require('connect-mongo')(session)
 var morgan = require('morgan')
-// var CronJob = require('cron').CronJob
-// new CronJob('*/15 * * * * *', function () {
-//   console.log('You will see this message every 15 seconds')
-// }, null, true, 'Asia/Singapore')
 
 var app = express()
 var server = require('http').Server(app)
