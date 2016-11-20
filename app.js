@@ -8,7 +8,7 @@ var flash = require('connect-flash')
 var session = require('express-session')
 var passport = require('passport')
 var MongoStore = require('connect-mongo')(session)
-var morgan = require('morgan')
+// var morgan = require('morgan')
 
 var app = express()
 var server = require('http').Server(app)
@@ -18,7 +18,7 @@ console.log('the environment is on ' + process.env.NODE_ENV)
 dotenv.load({path: '.env.' + process.env.NODE_ENV})
 mongoose.connect(process.env.MONGO_URI)
 
-app.use(morgan('dev'))
+// app.use(morgan('dev'))
 app.set('view engine', 'ejs')
 app.use(layout)
 app.use(session({
