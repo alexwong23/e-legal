@@ -16,7 +16,15 @@ User Flow Diagram:
 
 ![User Flow Diagram](https://github.com/alexwong23/e-legal/blob/master/public/images/Userflow.jpeg)
 
-Nutritonix Integration Diagram
+High-level Overview:
+
+![flow1](https://github.com/alexwong23/e-legal/blob/master/public/images/E-legal_Flow1Initial.png)
+
+![flow2](https://github.com/alexwong23/e-legal/blob/master/public/images/E-legal_Flow2exAPI.png)
+
+![flow3](https://github.com/alexwong23/e-legal/blob/master/public/images/E-legal_Flow3CronSocket.png)
+
+![flow4](https://github.com/alexwong23/e-legal/blob/master/public/images/E-legal_Flow4Complete.png)
 
 # Credits
 
