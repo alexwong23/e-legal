@@ -14,7 +14,7 @@ Entity Relationship Diagram:
 
 User Flow Diagram:
 
-User Flow Diagram
+![User Flow Diagram](https://github.com/alexwong23/e-legal/blob/master/public/images/Userflow.jpeg)
 
 Nutritonix Integration Diagram
 
