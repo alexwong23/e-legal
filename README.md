@@ -10,7 +10,7 @@ Built while exploring NodeJS and integration of MongoDB.
 
 Entity Relationship Diagram:
 
-![ERD](https://github.com/alexwong23/e-legal/public/images/ERD.png)
+![ERD](https://github.com/alexwong23/e-legal/blob/master/public/images/ERD.png)
 
 User Flow Diagram:
 
