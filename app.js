@@ -90,6 +90,29 @@ app.use('/api/matches', match_api)
 server.listen(process.env.PORT || 4000)
 console.log('Server running at http://localhost:4000/')
 
+// CRON jobs
+var cron = require('node-cron')
+var User = require('./models/user')
+
+// cron scheduler run every 10 seconds
+// calling the api main.js via sockets
+cron.schedule('*/10 * * * * *', function () {
+  io.on('connect', function (socket) {
+    socket.emit('call-api', {
+      call: true
+    })
+  })
+})
+// cron scheduler to run function every monday 0000 hours
+// function finds all users and adds 10 tokens to each one
+cron.schedule('0 0 0 * * 1', function () {
+  User.update({}, {
+    $inc: {'local.tokens': 10}
+  }, {multi: true}, function (err) {
+    if (err) throw new Error(err)
+  })
+})
+
 // web sockets
 var Match = require('./models/match')
 var Team = require('./models/team')

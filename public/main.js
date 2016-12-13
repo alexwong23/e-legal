@@ -206,6 +206,13 @@ $(document).ready(function () {
   })
 })
 
+var call = io()
+call.on('call-api', function (data) {
+  if (data.call) {
+    realTime()
+  }
+})
+
 // update previous matchdays using matchday url ('fixtures?matchday=9')
 // $.ajax({
 //   headers: { 'X-Auth-Token': '27abe9753e3f41729df870412f174c31' },
@@ -264,7 +271,6 @@ function realTime () {
       data: finished
     })
   })
-
-  setTimeout(realTime, 10000)
+  // setTimeout(realTime, 10000)
 }
-realTime()
+// realTime()
