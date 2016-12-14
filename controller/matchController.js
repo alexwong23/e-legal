@@ -5,9 +5,9 @@ var Vote = require('../models/vote')
 var Team = require('../models/team')
 
 // time now is 13 dec 15 10 00
-var matchDate = '2016-12-14 18:26:00' // + 3.1hr
-var matchDate2 = '2016-12-14 15:24:00' // current time
-var matchDate3 = '2016-12-14 12:24:00' // - 3hr
+var matchDate = '2016-12-14 19:40:00' // + 3.1hr
+var matchDate2 = '2016-12-14 16:38:00' // current time
+var matchDate3 = '2016-12-14 13:38:00' // - 3hr
 var matchDate4 = '2016-12-15 20:00:00' // + one day
 
 // export functions to match and match_api routes
