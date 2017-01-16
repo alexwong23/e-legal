@@ -261,7 +261,7 @@ function realTime () {
   // calling played games one day before
   $.ajax({
     headers: { 'X-Auth-Token': '27abe9753e3f41729df870412f174c31' },
-    url: '//api.football-data.org/v1/competitions/426/fixtures?timeFrame=p1',
+    url: '//api.football-data.org/v1/competitions/426/fixtures?timeFrame=p31',
     type: 'GET',
     dataType: 'json'
   }).done(function (finished) {
