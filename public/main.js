@@ -216,7 +216,7 @@ call.on('call-api', function (data) {
 // update previous matchdays using matchday url ('fixtures?matchday=9')
 // $.ajax({
 //   headers: { 'X-Auth-Token': '27abe9753e3f41729df870412f174c31' },
-//   url: '//api.football-data.org/v1/competitions/426/fixtures?matchday=9',
+//   url: '//api.football-data.org/v1/competitions/445/fixtures?matchday=9',
 //   type: 'GET',
 //   dataType: 'json'
 // }).done(function (timed) {
@@ -227,19 +227,19 @@ call.on('call-api', function (data) {
 //   })
 // })
 
-// // calling all team details from url epl teams
-//   $.ajax({
-//     headers: { 'X-Auth-Token': '27abe9753e3f41729df870412f174c31' },
-//     url: 'https://api.football-data.org/v1/competitions/426/teams',
-//     type: 'GET',
-//     dataType: 'json'
-//   }).done(function (teamData) {
-//     $.post({
-//       type: 'POST',
-//       url: '/matches/teamdata',
-//       data: teamData
-//     })
-//   })
+// calling all team details from url epl teams
+  $.ajax({
+    headers: { 'X-Auth-Token': '27abe9753e3f41729df870412f174c31' },
+    url: 'https://api.football-data.org/v1/competitions/445/teams',
+    type: 'GET',
+    dataType: 'json'
+  }).done(function (teamData) {
+    $.post({
+      type: 'POST',
+      url: '/matches/teamdata',
+      data: teamData
+    })
+  })
 
 // run realtime function every 10 seconds using set interval
 // calling external api for match updates
@@ -247,10 +247,11 @@ function realTime () {
   // calling timed games for next 7 days
   $.ajax({
     headers: { 'X-Auth-Token': '27abe9753e3f41729df870412f174c31' },
-    url: '//api.football-data.org/v1/competitions/426/fixtures?timeFrame=n7',
+    url: '//api.football-data.org/v1/competitions/445/fixtures?timeFrame=n7',
     type: 'GET',
     dataType: 'json'
   }).done(function (timed) {
+    console.log(timed)
     $.post({
       type: 'POST',
       url: '/matches/timed',
@@ -261,7 +262,7 @@ function realTime () {
   // calling played games one day before
   $.ajax({
     headers: { 'X-Auth-Token': '27abe9753e3f41729df870412f174c31' },
-    url: '//api.football-data.org/v1/competitions/426/fixtures?timeFrame=p2',
+    url: '//api.football-data.org/v1/competitions/445/fixtures?timeFrame=p2',
     type: 'GET',
     dataType: 'json'
   }).done(function (finished) {
