@@ -228,18 +228,18 @@ call.on('call-api', function (data) {
 // })
 
 // calling all team details from url epl teams
-  // $.ajax({
-  //   headers: { 'X-Auth-Token': '27abe9753e3f41729df870412f174c31' },
-  //   url: 'https://api.football-data.org/v1/competitions/445/teams',
-  //   type: 'GET',
-  //   dataType: 'json'
-  // }).done(function (teamData) {
-  //   $.post({
-  //     type: 'POST',
-  //     url: '/matches/teamdata',
-  //     data: teamData
-  //   })
-  // })
+  $.ajax({
+    headers: { 'X-Auth-Token': '27abe9753e3f41729df870412f174c31' },
+    url: 'https://api.football-data.org/v1/competitions/445/teams',
+    type: 'GET',
+    dataType: 'json'
+  }).done(function (teamData) {
+    $.post({
+      type: 'POST',
+      url: '/matches/teamdata',
+      data: teamData
+    })
+  })
 
 // run realtime function every 10 seconds using set interval
 // calling external api for match updates
@@ -251,6 +251,7 @@ function realTime () {
     type: 'GET',
     dataType: 'json'
   }).done(function (timed) {
+    console.log(timed)
     $.post({
       type: 'POST',
       url: '/matches/timed',
