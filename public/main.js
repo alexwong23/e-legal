@@ -247,7 +247,8 @@ function realTime () {
   // calling timed games for next 7 days
   $.ajax({
     headers: { 'X-Auth-Token': '27abe9753e3f41729df870412f174c31' },
-    url: '//api.football-data.org/v1/competitions/445/fixtures?timeFrame=n7',
+    // url: '//api.football-data.org/v1/competitions/445/fixtures?timeFrame=n7',
+    url: '//api.football-data.org/v2/competitions/2021/fixtures?timeFrame=n7',
     type: 'GET',
     dataType: 'json'
   }).done(function (timed) {
@@ -262,7 +263,8 @@ function realTime () {
   // calling played games one day before
   $.ajax({
     headers: { 'X-Auth-Token': '27abe9753e3f41729df870412f174c31' },
-    url: '//api.football-data.org/v1/competitions/445/fixtures?timeFrame=p2',
+    // url: '//api.football-data.org/v1/competitions/445/fixtures?timeFrame=p2',
+    url: '//api.football-data.org/v2/competitions/2021/fixtures?timeFrame=p2',
     type: 'GET',
     dataType: 'json'
   }).done(function (finished) {
