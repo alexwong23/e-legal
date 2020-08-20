@@ -2,9 +2,10 @@
 
 Heroku link: (https://e-legal.herokuapp.com/)
 
-An online EPL Football voting website built with NodeJS Express, websockets and MongoDB and linked up with external API data.
+An online EPL Football voting website built with NodeJS Express, websockets and MongoDB and linked up with external API data. Users were awarded tokens for every correct prediction. In case users run out of tokens, a cron job would run every sunday night, awarding 10 tokens to all users. The match info were pulled from an open-source external API. Changes in the match info were updated on the client using web-sockets so users would not need to refresh the page to get the latest updates.
 
 Built while exploring NodeJS and integration of MongoDB.
+
 
 # Diagrams and Wireframes
 
